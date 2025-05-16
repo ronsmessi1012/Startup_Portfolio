@@ -7,7 +7,7 @@ const AboutSection: React.FC = () => {
   const stats = [
     { value: '25+', label: 'Years of Experience', icon: <Calendar className="text-amber-500" size={24} /> },
     { value: '500+', label: 'Projects Completed', icon: <CheckSquare className="text-amber-500" size={24} /> },
-    { value: '45', label: 'Team Members', icon: <Users className="text-amber-500" size={24} /> }
+    { value: '15', label: 'Team Members', icon: <Users className="text-amber-500" size={24} /> }
   ];
 
   return (
@@ -43,14 +43,14 @@ const AboutSection: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">
-              Designing Exceptional Spaces Since 1998
+              Designing Exceptional Spaces Since 1995
             </h2>
             <div className="w-20 h-1 bg-amber-500 mb-6"></div>
             <p className="text-slate-600 text-lg mb-6">
-              At ArchVision, we believe that architecture is more than just buildings – it's about creating spaces that inspire, function efficiently, and stand the test of time.
+              At New Design O Craft, we believe that architecture is more than just buildings – it's about creating spaces that inspire, function efficiently and stand the test of time.
             </p>
             <p className="text-slate-600 mb-8">
-              Our multidisciplinary team of architects, designers, and planners work collaboratively to deliver innovative solutions that balance creativity, functionality, and sustainability. With a client-centered approach, we transform concepts into extraordinary spaces that exceed expectations.
+              Our multidisciplinary team of architects, designers and planners work collaboratively to deliver innovative solutions that balance creativity, functionality and sustainability. With a client-centered approach, we transform concepts into extraordinary spaces that exceed expectations.
             </p>
             
             {/* Stats Grid */}

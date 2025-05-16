@@ -65,9 +65,9 @@ const ContactSection: React.FC = () => {
                 <div>
                   <h4 className="font-medium text-slate-800 mb-1">Office Address</h4>
                   <address className="not-italic text-slate-600">
-                    123 Architecture Plaza<br />
-                    Design District<br />
-                    Cityville, ST 12345
+                    Tarapukur Main Rd, Tara Pukur South<br />
+                     Agarpara, Pirtala<br />
+                    Kolkata, West Bengal 700109
                   </address>
                 </div>
               </div>
@@ -78,8 +78,8 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-slate-800 mb-1">Phone</h4>
-                  <a href="tel:+11234567890" className="text-slate-600 hover:text-amber-600 transition-colors">
-                    (123) 456-7890
+                  <a href="tel:+919875663719" className="text-slate-600 hover:text-amber-600 transition-colors">
+                    +91 98756 63719
                   </a>
                 </div>
               </div>
@@ -90,8 +90,8 @@ const ContactSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-slate-800 mb-1">Email</h4>
-                  <a href="mailto:info@archvision.com" className="text-slate-600 hover:text-amber-600 transition-colors">
-                    info@archvision.com
+                  <a href="mailto:avijitchowdhury55@gmail.com" className="text-slate-600 hover:text-amber-600 transition-colors">
+                    avijitchowdhury55@gmail.com
                   </a>
                 </div>
               </div>
@@ -103,8 +103,8 @@ const ContactSection: React.FC = () => {
                 <div>
                   <h4 className="font-medium text-slate-800 mb-1">Business Hours</h4>
                   <p className="text-slate-600">
-                    Monday - Friday: 9:00 AM - 6:00 PM<br />
-                    Saturday: 10:00 AM - 2:00 PM<br />
+                    Monday - Saturday: 10:00 AM - 9:00 PM<br />
+                    Sunday: 10:00 AM - 7:00 PM<br />
                     Sunday: Closed
                   </p>
                 </div>
@@ -115,7 +115,7 @@ const ContactSection: React.FC = () => {
             <div className="aspect-w-16 aspect-h-9">
               <iframe 
                 title="Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.666632047712!2d-73.98514568459395!3d40.74881797932823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1645612786392!5m2!1sen!2sus" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.212779789138!2d88.3877395!3d22.683121600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89de4a11d4d81%3A0x5863c18e6e5c51bd!2sNew%20Design%20O%20Craft!5e0!3m2!1sen!2sin!4v1747424370313!5m2!1sen!2sin"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0, borderRadius: '0.5rem' }} 
@@ -148,7 +148,7 @@ const ContactSection: React.FC = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-md border border-slate-300 focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50 transition-colors"
-                    placeholder="John Doe"
+                    placeholder="Rudranil Chowdhury"
                   />
                 </div>
                 
@@ -164,7 +164,7 @@ const ContactSection: React.FC = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-md border border-slate-300 focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50 transition-colors"
-                    placeholder="john@example.com"
+                    placeholder="rudranil@gmail.com"
                   />
                 </div>
               </div>
@@ -181,7 +181,7 @@ const ContactSection: React.FC = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-md border border-slate-300 focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50 transition-colors"
-                    placeholder="(123) 456-7890"
+                    placeholder="+919876543210"
                   />
                 </div>
                 

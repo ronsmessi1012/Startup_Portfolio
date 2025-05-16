@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
               Creating innovative architectural solutions that blend creativity, functionality, and sustainability since 1995.
             </p>
             <div className="flex space-x-4">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors">
+              <a href="https://www.instagram.com/ndocraft" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors">
                 <Instagram size={20} />
                 <span className="sr-only">Instagram</span>
               </a>
@@ -70,9 +70,6 @@ const Footer: React.FC = () => {
                 <Link to="/services/architectural-design" className="text-slate-300 hover:text-amber-400 transition-colors">Architectural Design</Link>
               </li>
               <li>
-                <Link to="/services/interior-design" className="text-slate-300 hover:text-amber-400 transition-colors">Interior Design</Link>
-              </li>
-              <li>
                 <Link to="/services/urban-planning" className="text-slate-300 hover:text-amber-400 transition-colors">Urban Planning</Link>
               </li>
               <li>
@@ -94,21 +91,21 @@ const Footer: React.FC = () => {
               <div className="flex items-start space-x-3 mb-3">
                 <MapPin size={20} className="text-amber-500 flex-shrink-0 mt-1" />
                 <span className="text-slate-300">
-                  123 Architecture Plaza<br />
-                  Design District<br />
-                  Cityville, ST 12345
+                  Tarapukur Main Rd, Tara Pukur South<br />
+                     Agarpara, Pirtala<br />
+                    Kolkata, West Bengal 700109
                 </span>
               </div>
               <div className="flex items-center space-x-3 mb-3">
                 <Phone size={20} className="text-amber-500" />
-                <a href="tel:+11234567890" className="text-slate-300 hover:text-amber-400 transition-colors">
-                  (123) 456-7890
+                <a href="tel:+919875663719" className="text-slate-300 hover:text-amber-400 transition-colors">
+                  +91 98756 63719
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail size={20} className="text-amber-500" />
-                <a href="mailto:info@archvision.com" className="text-slate-300 hover:text-amber-400 transition-colors">
-                  info@archvision.com
+                <a href="mailto:avijitchowdhury55@gmail.com" className="text-slate-300 hover:text-amber-400 transition-colors">
+                  avijitchowdhury55@gmail.com
                 </a>
               </div>
             </address>
@@ -116,7 +113,7 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400">
-          <p>© {currentYear} ArchVision Architectural & Design Planning. All rights reserved.</p>
+          <p>© {currentYear} New Design O Craft Architechture and Building Planner. All rights reserved.</p>
         </div>
       </div>
     </footer>

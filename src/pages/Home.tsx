@@ -9,7 +9,7 @@ import CTASection from '../components/CTASection';
 
 const Home: React.FC = () => {
   useEffect(() => {
-    document.title = 'ArchVision - Architectural & Design Planning';
+    document.title = 'New Design O Craft - Architectural & Design Planning';
   }, []);
 
   return (

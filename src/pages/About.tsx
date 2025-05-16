@@ -1,3 +1,5 @@
+import rudranilImg from '../assets/images/Rudranil.jpg';
+import tirthaImg from '../assets/images/Tirtha.png';
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, CheckSquare, Users, Award, Globe, Lightbulb } from 'lucide-react';
@@ -5,42 +7,42 @@ import CTASection from '../components/CTASection';
 
 const About: React.FC = () => {
   useEffect(() => {
-    document.title = 'About Us - ArchVision';
+    document.title = 'About Us - New Design O Craft';
   }, []);
 
   const stats = [
     { value: '25+', label: 'Years of Experience', icon: <Calendar className="text-amber-500" size={24} /> },
     { value: '500+', label: 'Projects Completed', icon: <CheckSquare className="text-amber-500" size={24} /> },
-    { value: '45', label: 'Team Members', icon: <Users className="text-amber-500" size={24} /> },
-    { value: '18', label: 'Industry Awards', icon: <Award className="text-amber-500" size={24} /> },
-    { value: '12', label: 'Countries Served', icon: <Globe className="text-amber-500" size={24} /> },
+    { value: '15', label: 'Team Members', icon: <Users className="text-amber-500" size={24} /> },
+    /*{ value: '18', label: 'Industry Awards', icon: <Award className="text-amber-500" size={24} /> },
+    { value: '12', label: 'Countries Served', icon: <Globe className="text-amber-500" size={24} /> },*/
     { value: '100%', label: 'Client Satisfaction', icon: <Lightbulb className="text-amber-500" size={24} /> }
   ];
 
   const team = [
     {
-      name: 'Michael Anderson',
+      name: 'Avijit Chowdhury',
       position: 'Principal Architect & Founder',
       image: 'https://images.pexels.com/photos/3778603/pexels-photo-3778603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      bio: 'Michael founded ArchVision in 1998 with a vision to create innovative architectural solutions that balance form, function, and sustainability.'
+      bio: 'Avijit founded New Design O Craft in 1995 with a vision to create innovative architectural solutions that balance form, function, and sustainability.'
     },
-    {
+    /*{
       name: 'Sarah Chen',
       position: 'Design Director',
       image: 'https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       bio: 'With over 15 years of experience, Sarah leads our design team with a focus on creating spaces that inspire and transform the human experience.'
-    },
+    },*/
     {
-      name: 'David Rodriguez',
+      name: 'Rudranil Chowdhury',
       position: 'Technical Director',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      bio: 'David ensures that our designs are technically sound and buildable, bringing 20 years of technical expertise to every project.'
+      image: rudranilImg,
+      bio: 'Rudranil ensures that our designs are technically sound and buildable, bringing his excellence of technical expertise to every project.'
     },
     {
-      name: 'Emma Johnson',
-      position: 'Interior Design Lead',
-      image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      bio: 'Emma specializes in creating interior spaces that seamlessly blend with architectural elements to create cohesive, functional environments.'
+      name: 'Tirtha Majumder',
+      position: 'Management Lead',
+      image: tirthaImg,
+      bio: 'Tirtha brings strategic leadership and organizational insight to the team, ensuring that every project runs smoothly from inception to completion with a focus on efficiency, communication, and client satisfaction.'
     }
   ];
 
@@ -57,7 +59,7 @@ const About: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6"
             >
-              About ArchVision
+              About New Design O Craft
             </motion.h1>
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
@@ -90,7 +92,7 @@ const About: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">Our Story</h2>
               <div className="w-20 h-1 bg-amber-500 mb-6"></div>
               <p className="text-lg text-slate-700 mb-4">
-                Founded in 1998 by Michael Anderson, ArchVision began as a small architectural practice with a big vision: to create innovative spaces that inspire and enhance the human experience.
+                Founded in 1995 by Avijit Chowdhury, New Design O Craft began as a small architectural practice with a big vision: to create innovative spaces that inspire and enhance the human experience.
               </p>
               <p className="text-slate-600 mb-4">
                 Over the past 25 years, we've grown into a multidisciplinary team of architects, designers, and planners who collaborate to deliver exceptional architectural solutions across residential, commercial, and institutional sectors.
@@ -100,7 +102,7 @@ const About: React.FC = () => {
               </p>
               <blockquote className="italic border-l-4 border-amber-500 pl-4 text-slate-700">
                 "Architecture is not just about creating buildings; it's about creating experiences, stories, and memories through thoughtfully designed spaces."
-                <footer className="mt-2 text-slate-600 not-italic">— Michael Anderson, Founder</footer>
+                <footer className="mt-2 text-slate-600 not-italic">— Avijit Chowdhury, Founder</footer>
               </blockquote>
             </motion.div>
             
@@ -113,7 +115,7 @@ const About: React.FC = () => {
             >
               <img 
                 src="https://images.pexels.com/photos/3184434/pexels-photo-3184434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="ArchVision Team" 
+                alt="New Design O Craft Team" 
                 className="rounded-lg shadow-lg"
               />
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 p-4 md:p-8 rounded-lg shadow-lg text-center">

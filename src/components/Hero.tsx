@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-slate-200 mb-8 max-w-xl"
           >
-            New Design O Craft transforms concepts into extraordinary spaces where aesthetics meet functionality. With over 25 years of experience, we deliver innovative architectural solutions tailored to your vision.
+            New Design O Craft   transforms concepts into extraordinary spaces where aesthetics meet functionality. With over 25 years of experience, we deliver innovative architectural solutions tailored to your vision.
           </motion.p>
           
           <motion.div 

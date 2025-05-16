@@ -44,12 +44,6 @@ const ServicesSection: React.FC = () => {
       link: '/services/architectural-design'
     },
     {
-      title: 'Interior Design',
-      description: 'Transform spaces with innovative interior designs that reflect your personal style while maximizing functionality and comfort.',
-      icon: <PenTool size={28} />,
-      link: '/services/interior-design'
-    },
-    {
       title: 'Urban Planning',
       description: 'Comprehensive urban planning services that create sustainable, livable communities through thoughtful land use and infrastructure design.',
       icon: <MapPin size={28} />,
