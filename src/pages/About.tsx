@@ -1,7 +1,10 @@
 import rudranilImg from '../assets/images/Rudranil.jpg';
 import tirthaImg from '../assets/images/Tirtha.png';
+<<<<<<< HEAD
 import sayanImg from '../assets/images/Sayan.jpg';
 import avijitImg from '../assets/images/Avijit.jpg';
+=======
+>>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, CheckSquare, Users, Award, Globe, Lightbulb } from 'lucide-react';
@@ -16,8 +19,13 @@ const About: React.FC = () => {
     { value: '25+', label: 'Years of Experience', icon: <Calendar className="text-amber-500" size={24} /> },
     { value: '500+', label: 'Projects Completed', icon: <CheckSquare className="text-amber-500" size={24} /> },
     { value: '15', label: 'Team Members', icon: <Users className="text-amber-500" size={24} /> },
+<<<<<<< HEAD
     { value: '25', label: 'Industry Awards', icon: <Award className="text-amber-500" size={24} /> },
     /*{ value: '12', label: 'Countries Served', icon: <Globe className="text-amber-500" size={24} /> },*/
+=======
+    /*{ value: '18', label: 'Industry Awards', icon: <Award className="text-amber-500" size={24} /> },
+    { value: '12', label: 'Countries Served', icon: <Globe className="text-amber-500" size={24} /> },*/
+>>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     { value: '100%', label: 'Client Satisfaction', icon: <Lightbulb className="text-amber-500" size={24} /> }
   ];
 
@@ -25,9 +33,21 @@ const About: React.FC = () => {
     {
       name: 'Avijit Chowdhury',
       position: 'Principal Architect & Founder',
+<<<<<<< HEAD
       image: avijitImg,
       bio: 'Avijit founded New Design O Craft in 1995 with a vision to create innovative architectural solutions that balance form, function, and sustainability.'
     },
+=======
+      image: 'https://images.pexels.com/photos/3778603/pexels-photo-3778603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      bio: 'Avijit founded New Design O Craft in 1995 with a vision to create innovative architectural solutions that balance form, function, and sustainability.'
+    },
+    /*{
+      name: 'Sarah Chen',
+      position: 'Design Director',
+      image: 'https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      bio: 'With over 15 years of experience, Sarah leads our design team with a focus on creating spaces that inspire and transform the human experience.'
+    },*/
+>>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     {
       name: 'Rudranil Chowdhury',
       position: 'Technical Director',
@@ -39,12 +59,15 @@ const About: React.FC = () => {
       position: 'Management Lead',
       image: tirthaImg,
       bio: 'Tirtha brings strategic leadership and organizational insight to the team, ensuring that every project runs smoothly from inception to completion with a focus on efficiency, communication, and client satisfaction.'
+<<<<<<< HEAD
     },
     {
       name: 'Sayan Roy Chowdhury',
       position: 'Design Director',
       image: sayanImg,
       bio: 'With well built experience, Sayan leads our design team with a focus on creating spaces that inspire and transform the human experience.'
+=======
+>>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     }
   ];
 
