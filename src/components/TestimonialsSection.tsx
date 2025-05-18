@@ -15,11 +15,7 @@ const TestimonialsSection: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-<<<<<<< HEAD
       quote: "New Design O Craft transformed our concept into a stunning reality. Their attention to detail and innovative approach exceeded our expectations. The team was communicative and professional throughout the entire process.",
-=======
-      quote: "ArchVision transformed our concept into a stunning reality. Their attention to detail and innovative approach exceeded our expectations. The team was communicative and professional throughout the entire process.",
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
       author: "Jennifer Martinez",
       position: "CEO, Horizon Developments",
       rating: 5,
@@ -27,11 +23,7 @@ const TestimonialsSection: React.FC = () => {
     },
     {
       id: 2,
-<<<<<<< HEAD
       quote: "Working with New Design O Craft on our corporate headquarters was an exceptional experience. Their ability to blend aesthetics with functionality created a space that perfectly represents our brand identity.",
-=======
-      quote: "Working with ArchVision on our corporate headquarters was an exceptional experience. Their ability to blend aesthetics with functionality created a space that perfectly represents our brand identity.",
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
       author: "David Chen",
       position: "Director, Atlas Corporation",
       rating: 5,
@@ -39,11 +31,7 @@ const TestimonialsSection: React.FC = () => {
     },
     {
       id: 3,
-<<<<<<< HEAD
       quote: "The residential design New Design O Craft created for us beautifully balances modern aesthetics with comfort and practicality. They listened to our needs and delivered a home that truly enhances our lifestyle.",
-=======
-      quote: "The residential design ArchVision created for us beautifully balances modern aesthetics with comfort and practicality. They listened to our needs and delivered a home that truly enhances our lifestyle.",
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
       author: "Sarah Johnson",
       position: "Homeowner",
       rating: 5,
@@ -78,11 +66,7 @@ const TestimonialsSection: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">Client Testimonials</h2>
           <div className="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
           <p className="max-w-2xl mx-auto text-slate-600 text-lg">
-<<<<<<< HEAD
             Hear from our satisfied clients about their experience working with New Design O Craft.
-=======
-            Hear from our satisfied clients about their experience working with ArchVision.
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
           </p>
         </motion.div>
         

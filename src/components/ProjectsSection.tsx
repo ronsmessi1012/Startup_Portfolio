@@ -23,11 +23,7 @@ const ProjectsSection: React.FC = () => {
       category: 'commercial',
       image: 'https://images.pexels.com/photos/2404444/pexels-photo-2404444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       year: 2023,
-<<<<<<< HEAD
       location: 'Kolkata, India',
-=======
-      location: 'San Francisco, CA',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
       slug: 'urban-heights-tower'
     },
     {
@@ -36,11 +32,7 @@ const ProjectsSection: React.FC = () => {
       category: 'residential',
       image: 'https://images.pexels.com/photos/2506990/pexels-photo-2506990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       year: 2022,
-<<<<<<< HEAD
       location: 'Kolkata, India',
-=======
-      location: 'Seattle, WA',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
       slug: 'serenity-residence'
     },
     {
@@ -49,11 +41,8 @@ const ProjectsSection: React.FC = () => {
       category: 'urban',
       image: 'https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       year: 2021,
-<<<<<<< HEAD
       location: 'Kolkata, India',
-=======
-      location: 'Chicago, IL',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
+
       slug: 'harmony-park'
     },
     {
@@ -62,11 +51,8 @@ const ProjectsSection: React.FC = () => {
       category: 'commercial',
       image: 'https://images.pexels.com/photos/3773404/pexels-photo-3773404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       year: 2023,
-<<<<<<< HEAD
       location: 'Kolkata, India',
-=======
-      location: 'Austin, TX',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
+
       slug: 'tech-innovation-center'
     },
     {
@@ -75,11 +61,8 @@ const ProjectsSection: React.FC = () => {
       category: 'residential',
       image: 'https://images.pexels.com/photos/2098624/pexels-photo-2098624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       year: 2022,
-<<<<<<< HEAD
       location: 'Kolkata, India',
-=======
-      location: 'Miami, FL',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
+
       slug: 'coastal-villa'
     },
     {
@@ -88,11 +71,7 @@ const ProjectsSection: React.FC = () => {
       category: 'institutional',
       image: 'https://images.pexels.com/photos/262347/pexels-photo-262347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       year: 2021,
-<<<<<<< HEAD
       location: 'Kolkata, India',
-=======
-      location: 'Washington, D.C.',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
       slug: 'heritage-museum'
     }
   ];

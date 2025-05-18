@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +36,9 @@ const Header: React.FC = () => {
       path: '/services',
       dropdown: [
         { title: 'Architectural Design', path: '/services/architectural-design' },
+        { title: 'Interior Design', path: '/services/interior-design' },
         { title: 'Urban Planning', path: '/services/urban-planning' },
         { title: 'Landscape Design', path: '/services/landscape-design' },
-        { title: '3D Visualization', path: '/services/3d-visualization' },
-        { title: 'Consulting', path: '/services/consulting' },
       ]
     },
     { title: 'Projects', path: '/projects' },
@@ -45,11 +46,23 @@ const Header: React.FC = () => {
     { title: 'Contact', path: '/contact' },
   ];
 
+  const getHeaderStyle = () => {
+    if (!isHomePage) {
+      return 'bg-white shadow-md';
+    }
+    return scrolled ? 'bg-white shadow-md' : 'bg-transparent';
+  };
+
+  const getTextStyle = (isDropdown = false) => {
+    if (!isHomePage || scrolled) {
+      return isDropdown ? 'text-slate-700' : 'text-slate-700 hover:text-amber-600';
+    }
+    return isDropdown ? 'text-white' : 'text-white hover:text-amber-400';
+  };
+
   return (
     <motion.header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${getHeaderStyle()} py-4`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -57,7 +70,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <span className={`text-2xl font-serif font-bold ${scrolled ? 'text-slate-800' : 'text-white'}`}>
+            <span className={`text-2xl font-serif font-bold ${!isHomePage || scrolled ? 'text-slate-800' : 'text-white'}`}>
               NEW DESIGN<span className="text-amber-600"> O CRAFT</span>
             </span>
           </Link>
@@ -69,7 +82,7 @@ const Header: React.FC = () => {
                 {item.dropdown ? (
                   <div className="flex items-center cursor-pointer">
                     <span 
-                      className={`font-medium ${scrolled ? 'text-slate-700 hover:text-amber-600' : 'text-white hover:text-amber-400'} transition-colors duration-200`}
+                      className={`font-medium ${getTextStyle(true)} transition-colors duration-200`}
                       onClick={() => toggleDropdown(item.title)}
                     >
                       {item.title}
@@ -77,14 +90,14 @@ const Header: React.FC = () => {
                     <ChevronDown 
                       size={16} 
                       className={`ml-1 transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''} ${
-                        scrolled ? 'text-slate-700' : 'text-white'
+                        !isHomePage || scrolled ? 'text-slate-700' : 'text-white'
                       }`} 
                     />
                   </div>
                 ) : (
                   <Link 
                     to={item.path} 
-                    className={`font-medium ${scrolled ? 'text-slate-700 hover:text-amber-600' : 'text-white hover:text-amber-400'} transition-colors duration-200`}
+                    className={`font-medium ${getTextStyle()} transition-colors duration-200`}
                   >
                     {item.title}
                   </Link>
@@ -124,9 +137,9 @@ const Header: React.FC = () => {
             aria-label="Menu"
           >
             {isOpen ? (
-              <X className={scrolled ? 'text-slate-800' : 'text-white'} size={24} />
+              <X className={!isHomePage || scrolled ? 'text-slate-800' : 'text-white'} size={24} />
             ) : (
-              <Menu className={scrolled ? 'text-slate-800' : 'text-white'} size={24} />
+              <Menu className={!isHomePage || scrolled ? 'text-slate-800' : 'text-white'} size={24} />
             )}
           </button>
         </div>

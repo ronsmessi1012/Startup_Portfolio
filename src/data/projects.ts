@@ -21,11 +21,7 @@ export const projects: Project[] = [
     title: 'Urban Heights Tower',
     slug: 'urban-heights-tower',
     category: 'commercial',
-<<<<<<< HEAD
     location: 'Kolkata, India',
-=======
-    location: 'San Francisco, CA',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     year: 2023,
     client: 'Urban Development Corp',
     description: 'A 28-story mixed-use tower featuring office space, luxury apartments, and ground-floor retail in downtown San Francisco.',
@@ -46,7 +42,6 @@ export const projects: Project[] = [
     title: 'Serenity Residence',
     slug: 'serenity-residence',
     category: 'residential',
-<<<<<<< HEAD
     location: 'Kolkata, India',
     year: 2022,
     client: 'Private Client',
@@ -54,15 +49,6 @@ export const projects: Project[] = [
     challenge: 'Creating a home that embraces the stunning natural surroundings while providing shelter from the region\'s frequent rain and maintaining privacy from neighboring properties.',
     solution: 'We designed a series of staggered volumes with large overhangs to create covered outdoor spaces. Floor-to-ceiling windows frame key views while strategic placement of solid walls ensures privacy.',
     result: 'A harmonious home that blends indoor and outdoor living, with interiors bathed in natural light despite the region\'s cloudy climate.',
-=======
-    location: 'Seattle, WA',
-    year: 2022,
-    client: 'Private Client',
-    description: 'A modern single-family residence nestled in the Pacific Northwest landscape, designed to maximize views and natural light.',
-    challenge: 'Creating a home that embraces the stunning natural surroundings while providing shelter from the region's frequent rain and maintaining privacy from neighboring properties.',
-    solution: 'We designed a series of staggered volumes with large overhangs to create covered outdoor spaces. Floor-to-ceiling windows frame key views while strategic placement of solid walls ensures privacy.',
-    result: 'A harmonious home that blends indoor and outdoor living, with interiors bathed in natural light despite the region's cloudy climate.',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     mainImage: 'https://images.pexels.com/photos/2506990/pexels-photo-2506990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     galleryImages: [
       'https://images.pexels.com/photos/2506990/pexels-photo-2506990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
@@ -77,11 +63,7 @@ export const projects: Project[] = [
     title: 'Harmony Park',
     slug: 'harmony-park',
     category: 'urban',
-<<<<<<< HEAD
     location: 'Kolkata, India',
-=======
-    location: 'Chicago, IL',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     year: 2021,
     client: 'City of Chicago',
     description: 'A 5-acre urban park that transforms a former industrial site into a vibrant public space with recreational areas, native landscapes, and community facilities.',
@@ -102,19 +84,11 @@ export const projects: Project[] = [
     title: 'Tech Innovation Center',
     slug: 'tech-innovation-center',
     category: 'commercial',
-<<<<<<< HEAD
     location: 'Kolkata, India',
     year: 2023,
     client: 'TechFuture Inc.',
     description: 'A state-of-the-art corporate campus designed to foster innovation, collaboration, and employee wellbeing for a leading technology company.',
     challenge: 'Creating a workspace that balances the client\'s need for open collaboration spaces with areas for focused work, while incorporating advanced technology and sustainable design principles.',
-=======
-    location: 'Austin, TX',
-    year: 2023,
-    client: 'TechFuture Inc.',
-    description: 'A state-of-the-art corporate campus designed to foster innovation, collaboration, and employee wellbeing for a leading technology company.',
-    challenge: 'Creating a workspace that balances the client's need for open collaboration spaces with areas for focused work, while incorporating advanced technology and sustainable design principles.',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     solution: 'We designed a campus of interconnected pavilions organized around central courtyards. Each building features a variety of work environments from team areas to focus pods, with integrated technology throughout.',
     result: 'A workplace that has increased employee satisfaction and collaboration, while achieving net-zero energy usage through passive design strategies and renewable energy systems.',
     mainImage: 'https://images.pexels.com/photos/3773404/pexels-photo-3773404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
@@ -131,11 +105,7 @@ export const projects: Project[] = [
     title: 'Coastal Villa',
     slug: 'coastal-villa',
     category: 'residential',
-<<<<<<< HEAD
     location: 'Kolkata, India',
-=======
-    location: 'Miami, FL',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     year: 2022,
     client: 'Private Client',
     description: 'A luxury beachfront residence that embraces indoor-outdoor living while responding to coastal climate challenges.',
@@ -156,11 +126,7 @@ export const projects: Project[] = [
     title: 'Heritage Museum',
     slug: 'heritage-museum',
     category: 'institutional',
-<<<<<<< HEAD
     location: 'Kolkata, India',
-=======
-    location: 'Washington, D.C.',
->>>>>>> 2c29876279bb6862deaf2119bf94e55f00110ab9
     year: 2021,
     client: 'National Heritage Foundation',
     description: 'A museum dedicated to preserving and showcasing cultural heritage, featuring exhibition spaces, educational facilities, and conservation laboratories.',
