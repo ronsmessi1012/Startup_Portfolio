@@ -36,9 +36,10 @@ const Header: React.FC = () => {
       path: '/services',
       dropdown: [
         { title: 'Architectural Design', path: '/services/architectural-design' },
-        { title: 'Interior Design', path: '/services/interior-design' },
         { title: 'Urban Planning', path: '/services/urban-planning' },
         { title: 'Landscape Design', path: '/services/landscape-design' },
+        { title: '3D Visualization', path: '/services/3d-visualization' },
+        { title: 'Project Management', path: '/services/project-management' },
       ]
     },
     { title: 'Projects', path: '/projects' },

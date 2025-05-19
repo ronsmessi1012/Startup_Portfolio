@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ChatWidget: React.FC = () => {
@@ -8,9 +8,13 @@ const ChatWidget: React.FC = () => {
     { text: "Hello! How can I help you today?", isUser: false }
   ]);
   const [inputText, setInputText] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const chatRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Close chat when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (chatRef.current && !chatRef.current.contains(event.target as Node)) {
@@ -22,22 +26,48 @@ const ChatWidget: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Scroll to bottom when new message added
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isLoading]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputText.trim()) return;
+    const userMessage = inputText.trim();
+    if (!userMessage) return;
 
-    // Add user message
-    setMessages(prev => [...prev, { text: inputText, isUser: true }]);
-
-    // Simulate response (replace with actual chatbot logic)
-    setTimeout(() => {
-      setMessages(prev => [...prev, {
-        text: "Thank you for your message. One of our team members will get back to you soon.",
-        isUser: false
-      }]);
-    }, 1000);
-
+    setMessages(prev => [...prev, { text: userMessage, isUser: true }]);
     setInputText('');
+    setIsLoading(true);
+
+    try {
+      const res = await fetch('http://127.0.0.1:8000/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user_input: userMessage }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.reply) {
+        setMessages(prev => [...prev, { text: data.reply, isUser: false }]);
+      } else {
+        setMessages(prev => [...prev, {
+          text: "Sorry, something went wrong. Please try again.",
+          isUser: false,
+        }]);
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      setMessages(prev => [...prev, {
+        text: "An error occurred. Please check your server and try again.",
+        isUser: false,
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -82,6 +112,13 @@ const ChatWidget: React.FC = () => {
                   </div>
                 </div>
               ))}
+              {isLoading && (
+                <div className="flex items-center space-x-2 text-slate-500">
+                  <Loader2 className="animate-spin" size={16} />
+                  <span className="text-sm">Thinking...</span>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
             </div>
 
             {/* Chat Input */}
@@ -94,10 +131,16 @@ const ChatWidget: React.FC = () => {
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Type your message..."
                   className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:border-amber-500"
+                  disabled={isLoading}
                 />
                 <button
                   type="submit"
-                  className="bg-amber-600 text-white p-2 rounded-md hover:bg-amber-700 transition-colors"
+                  className={`p-2 rounded-md transition-colors ${
+                    isLoading
+                      ? 'bg-slate-300 cursor-not-allowed'
+                      : 'bg-amber-600 hover:bg-amber-700 text-white'
+                  }`}
+                  disabled={isLoading}
                 >
                   <Send size={20} />
                 </button>
@@ -107,7 +150,7 @@ const ChatWidget: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Chat Button */}
+      {/* Floating Chat Button */}
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

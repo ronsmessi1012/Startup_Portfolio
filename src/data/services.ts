@@ -28,7 +28,7 @@ export const services: Service[] = [
     ],
     image: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
-  {
+  /*{
     id: 'interior-design',
     title: 'Interior Design',
     slug: 'interior-design',
@@ -45,7 +45,7 @@ export const services: Service[] = [
       'Art & Accessory Curation'
     ],
     image: 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  },
+  },*/
   {
     id: 'urban-planning',
     title: 'Urban Planning',
