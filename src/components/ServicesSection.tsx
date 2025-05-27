@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Ruler, PenTool, MapPin, Home, FileImage, Users } from 'lucide-react';
+import { Ruler, PenTool,Building2,Calculator,FlaskRound as Flask, MapPin, Home, FileImage, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ServiceCardProps {
@@ -43,11 +43,17 @@ const ServicesSection: React.FC = () => {
       icon: <Ruler size={28} />,
       link: '/services/architectural-design'
     },
+    /*{
+      title: 'Interior Design',
+      description: 'Transform spaces with innovative interior designs that reflect your personal style while maximizing functionality and comfort.',
+      icon: <PenTool size={28} />,
+      link: '/services/interior-design'
+    },*/
     {
-      title: 'Urban Planning',
-      description: 'Comprehensive urban planning services that create sustainable, livable communities through thoughtful land use and infrastructure design.',
-      icon: <MapPin size={28} />,
-      link: '/services/urban-planning'
+      title: 'Building Planning',
+      description: 'Comprehensive building planning services ensuring efficient space utilization and compliance with building codes.',
+      icon: <Building2 size={28} />,
+      link: '/services/building-planning'
     },
     {
       title: 'Landscape Design',
@@ -56,10 +62,16 @@ const ServicesSection: React.FC = () => {
       link: '/services/landscape-design'
     },
     {
-      title: '3D Visualization',
-      description: 'Photorealistic 3D renderings and animations that bring your project to life before construction begins.',
-      icon: <FileImage size={28} />,
-      link: '/services/3d-visualization'
+      title: 'Estimator Surveyor & Valuer',
+      description: 'Professional estimation, surveying, and valuation services for accurate property and construction cost assessment.',
+      icon: <Calculator size={28} />,
+      link: '/services/estimator-surveyor'
+    },
+     {
+      title: 'Soil Testing',
+      description: 'Comprehensive soil analysis and testing services to ensure proper foundation design and construction stability.',
+      icon: <Flask size={28} />,
+      link: '/services/soil-testing'
     },
     {
       title: 'Consulting',

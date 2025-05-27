@@ -9,12 +9,19 @@ const ChatWidget: React.FC = () => {
   ]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
+  const [suggestedQuestions, setSuggestedQuestions] = useState<string[]>([]);
   const chatRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Close chat when clicking outside
+  useEffect(() => {
+    if (isOpen) {
+      fetch('http://127.0.0.1:8000/suggestions')
+        .then(res => res.json())
+        .then(data => setSuggestedQuestions(data.suggested_questions || []))
+        .catch(err => console.error("Suggestion fetch error:", err));
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (chatRef.current && !chatRef.current.contains(event.target as Node)) {
@@ -26,16 +33,7 @@ const ChatWidget: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Scroll to bottom when new message added
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isLoading]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const userMessage = inputText.trim();
-    if (!userMessage) return;
-
+  const sendMessage = async (userMessage: string) => {
     setMessages(prev => [...prev, { text: userMessage, isUser: true }]);
     setInputText('');
     setIsLoading(true);
@@ -53,6 +51,7 @@ const ChatWidget: React.FC = () => {
 
       if (res.ok && data.reply) {
         setMessages(prev => [...prev, { text: data.reply, isUser: false }]);
+        setSuggestedQuestions(data.suggested_questions || []);
       } else {
         setMessages(prev => [...prev, {
           text: "Sorry, something went wrong. Please try again.",
@@ -68,6 +67,17 @@ const ChatWidget: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const userMessage = inputText.trim();
+    if (!userMessage) return;
+    await sendMessage(userMessage);
+  };
+
+  const handleSuggestionClick = async (question: string) => {
+    await sendMessage(question);
   };
 
   return (
@@ -118,8 +128,24 @@ const ChatWidget: React.FC = () => {
                   <span className="text-sm">Thinking...</span>
                 </div>
               )}
-              <div ref={messagesEndRef} />
             </div>
+
+            {/* Suggested Questions */}
+            {suggestedQuestions.length > 0 && (
+              <div className="p-2 bg-white border-t border-slate-100">
+                <div className="flex flex-wrap gap-2">
+                  {suggestedQuestions.map((question, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleSuggestionClick(question)}
+                      className="text-sm px-3 py-1 rounded-full bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors"
+                    >
+                      {question}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Chat Input */}
             <form onSubmit={handleSubmit} className="p-4 bg-white border-t">
@@ -136,8 +162,8 @@ const ChatWidget: React.FC = () => {
                 <button
                   type="submit"
                   className={`p-2 rounded-md transition-colors ${
-                    isLoading
-                      ? 'bg-slate-300 cursor-not-allowed'
+                    isLoading 
+                      ? 'bg-slate-300 cursor-not-allowed' 
                       : 'bg-amber-600 hover:bg-amber-700 text-white'
                   }`}
                   disabled={isLoading}
@@ -150,7 +176,7 @@ const ChatWidget: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Floating Chat Button */}
+      {/* Chat Button */}
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

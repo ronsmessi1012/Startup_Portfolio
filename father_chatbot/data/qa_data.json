@@ -1,202 +1,202 @@
 [
   {
-    "question": "What does your company specialize in?",
-    "answer": "We specialize in creating 2D architectural layouts using AutoCAD and converting them into immersive 3D visualizations."
+    "question": "What services does your company currently offer?",
+    "answer": "We currently offer Architectural Design, Building Planning, Landscape Design, Estimator Surveyor & Valuer services, Soil Testing, and Consulting."
   },
   {
-    "question": "What kind of projects do you work on?",
-    "answer": "We work on residential homes, apartments, small commercial buildings, and custom structural layouts."
+    "question": "Do you offer 2D to 3D visualization services?",
+    "answer": "Our 2D to 3D visualization feature is under development and will be available soon."
   },
   {
-    "question": "What file format do you use for 2D designs?",
-    "answer": "We primarily use .dwg format, which is a standard file type for AutoCAD drawings."
+    "question": "What is Architectural Design?",
+    "answer": "Architectural Design involves creating detailed plans and drawings for buildings and structures, keeping aesthetics, function, and safety in mind."
   },
   {
-    "question": "Can I send you my own 2D layout for 3D conversion?",
-    "answer": "Yes, you can upload your 2D .dwg or image files, and we will convert them into 3D structures based on your design."
+    "question": "What does Building Planning include?",
+    "answer": "Building Planning includes layout design, space optimization, structural considerations, and compliance with local regulations."
   },
   {
-    "question": "How long does it take to convert a 2D layout into a 3D model?",
-    "answer": "It usually takes 2–5 business days depending on the complexity of the design."
+    "question": "Do you provide services for residential projects?",
+    "answer": "Yes, we handle residential projects including houses, apartments, and duplex layouts."
   },
   {
-    "question": "Do you support hand-drawn sketches?",
-    "answer": "Yes, we can work with hand-drawn sketches if they are clear and well-dimensioned."
+    "question": "Do you work on commercial buildings?",
+    "answer": "Yes, we provide planning and design services for small commercial and mixed-use buildings."
   },
   {
-    "question": "Which software do you use for 3D modeling?",
-    "answer": "We use tools like Blender, SketchUp, and custom AI models for generating 3D structures from 2D inputs."
+    "question": "What is Landscape Design?",
+    "answer": "Landscape Design focuses on planning and designing outdoor spaces such as gardens, pathways, and green areas."
   },
   {
-    "question": "Can I see the interior of the 3D model?",
-    "answer": "Yes, our models include interior visualization based on the floor plan details."
+    "question": "Do you offer garden layout planning?",
+    "answer": "Yes, we provide custom garden and landscape layout services tailored to your site."
   },
   {
-    "question": "Do you provide walkthroughs for the 3D models?",
-    "answer": "We provide 3D walkthroughs upon request, allowing you to explore the space from different angles."
+    "question": "What does an Estimator do?",
+    "answer": "An Estimator prepares cost estimates for construction materials, labor, and time required for a project."
   },
   {
-    "question": "Can the outer boundary walls be transparent?",
-    "answer": "Yes, we offer an option for semi-transparent outer walls to showcase interior layouts clearly."
+    "question": "Do you offer soil testing services?",
+    "answer": "Yes, we conduct soil testing to assess soil strength, composition, and suitability for construction."
   },
   {
-    "question": "Is my data secure with your company?",
-    "answer": "Absolutely. We take data confidentiality seriously and ensure that your designs are never shared without permission."
+    "question": "Do you provide Vastu-compliant designs?",
+    "answer": "Yes, we offer Vastu-compliant planning on request to align your design with traditional principles."
   },
   {
-    "question": "How do I get started with a project?",
-    "answer": "You can contact us via the website form or email. Just share your design files and we’ll take it from there."
+    "question": "Do you help with government approvals?",
+    "answer": "We provide documentation and drawings required for approval, but we do not handle the submission process directly."
   },
   {
-    "question": "Do you help with architectural approvals?",
-    "answer": "We provide design documentation that you can submit to your local authorities, but we do not handle approvals directly."
+    "question": "Can I get a quote before starting a project?",
+    "answer": "Yes, you can request a free consultation and we will provide an estimated cost based on your requirements."
   },
   {
-    "question": "Can I make changes after the 3D model is ready?",
-    "answer": "Yes, we allow up to two free revisions based on your feedback."
+    "question": "How can I share my site measurements?",
+    "answer": "You can share CAD files, scanned sketches with dimensions, or arrange for a site visit by our team."
   },
   {
-    "question": "Do you offer floor plan optimization?",
-    "answer": "Yes, we can suggest improvements to maximize space utilization or comply with Vastu guidelines if requested."
+    "question": "Do you design from scratch?",
+    "answer": "Yes, we can create complete designs based on your requirements, starting from the concept phase."
   },
   {
-    "question": "Can I view my model on mobile devices?",
-    "answer": "Yes, we provide web-based 3D previews that work on phones and tablets."
+    "question": "Do you work with hand-drawn sketches?",
+    "answer": "Yes, as long as the sketch is clear and dimensioned, we can work with it."
   },
   {
-    "question": "What is the cost for 3D model conversion?",
-    "answer": "Prices vary based on the size and complexity of the layout. Contact us for a custom quote."
+    "question": "How accurate are your building plans?",
+    "answer": "We ensure high accuracy by using professional tools and cross-verifying all dimensions and layouts."
   },
   {
-    "question": "Do you provide only exterior views?",
-    "answer": "No, we provide both interior and exterior visualizations as per your project scope."
+    "question": "Do you offer site visits?",
+    "answer": "Yes, for local projects, we can schedule site visits for better understanding and measurements."
   },
   {
-    "question": "Can I rotate and view the model from all angles?",
-    "answer": "Yes, our models are interactive and allow 360-degree rotation and zoom."
+    "question": "How long does a typical project take?",
+    "answer": "Timeframes vary, but initial designs usually take 3–7 working days depending on complexity."
   },
   {
-    "question": "Do you provide print-ready floor plans?",
-    "answer": "Yes, we can provide high-resolution output suitable for printing and documentation."
+    "question": "What is a Valuer in construction?",
+    "answer": "A Valuer estimates the current market value of land, property, or a building based on various factors."
   },
   {
-    "question": "Do you support multi-floor building designs?",
-    "answer": "Yes, we support multi-story layouts and will reflect each level accurately in the 3D model."
+    "question": "Can I make changes to the plan later?",
+    "answer": "Yes, we allow for a few revisions based on your feedback before finalizing the design."
   },
   {
-    "question": "Can I get a quote before starting?",
-    "answer": "Yes, we provide a free estimate once we review your layout or requirements."
+    "question": "Can you help with space-saving layouts?",
+    "answer": "Yes, our planning focuses on optimizing every square foot to ensure efficient use of space."
   },
   {
-    "question": "How do I provide measurements?",
-    "answer": "If you’re submitting a sketch or image, please annotate it with clear dimensions. For CAD files, the scaling is automatic."
+    "question": "Do you offer 3D visualization currently?",
+    "answer": "Not at the moment, but our 3D visualization service is under development and will be launched soon."
   },
   {
-    "question": "Can you help me design from scratch?",
-    "answer": "Yes, we offer architectural design services starting from concept planning to final layout."
+    "question": "Do you provide detailed elevation drawings?",
+    "answer": "Yes, we create front, rear, and side elevation views as part of the architectural package."
   },
   {
-    "question": "Do you offer interior design suggestions?",
-    "answer": "We provide basic interior zoning, and you can request advanced interior planning separately."
+    "question": "What formats do you deliver the drawings in?",
+    "answer": "We provide AutoCAD (.dwg) files, PDF versions, and print-ready blueprints as needed."
   },
   {
-    "question": "What if I don’t have a CAD file?",
-    "answer": "You can send a scan, photo, or even a drawing with dimensions — we’ll recreate it in CAD first."
+    "question": "What software do you use?",
+    "answer": "We use industry-standard tools like AutoCAD for 2D layouts and advanced tools for design documentation."
   },
   {
-    "question": "Is the 3D model exportable?",
-    "answer": "Yes, we can export it in formats like GLB, FBX, or OBJ based on your need."
+    "question": "Do you help with floor plan optimization?",
+    "answer": "Yes, we analyze and suggest improvements to enhance functionality and aesthetics."
   },
   {
-    "question": "How accurate are your 3D conversions?",
-    "answer": "They’re accurate to within a few millimeters of the original 2D plan, depending on input quality."
+    "question": "Is soil testing necessary before construction?",
+    "answer": "Yes, soil testing is crucial to understand the load-bearing capacity and suitability of the land."
   },
   {
-    "question": "Do you support elevation designs?",
-    "answer": "Yes, we also provide 2D elevation drawings and can convert them into 3D views."
+    "question": "Do you offer borehole drilling?",
+    "answer": "We work with partners to provide borehole and geotechnical services if required."
   },
   {
-    "question": "How do I send large files?",
-    "answer": "You can use Google Drive, WeTransfer, or any cloud sharing service to send your files."
+    "question": "Can you suggest landscape features for small plots?",
+    "answer": "Absolutely, we design compact landscapes for small areas using creative zoning and greenery ideas."
   },
   {
-    "question": "Do you use AI in your workflow?",
-    "answer": "Yes, we use AI models for automating layout interpretation and accelerating 3D model generation."
+    "question": "Do you offer seasonal garden planning?",
+    "answer": "Yes, we can plan your garden layout to align with local seasons and plant cycles."
   },
   {
-    "question": "Can you visualize Vastu compliance?",
-    "answer": "Yes, we can align rooms and directions based on Vastu principles if requested."
+    "question": "Do you work with builders or contractors?",
+    "answer": "Yes, we often collaborate with builders and provide contractor-ready documents."
   },
   {
-    "question": "What if I have only images of floor plans?",
-    "answer": "We can trace and reconstruct CAD drawings from clear floor plan images."
+    "question": "Can you provide construction estimates?",
+    "answer": "Yes, our estimator can generate a detailed bill of quantities and cost estimation."
   },
   {
-    "question": "Do you offer virtual reality (VR) viewing?",
-    "answer": "We can provide VR-ready models on request for an immersive experience."
+    "question": "Do you create layout drawings for municipal approval?",
+    "answer": "Yes, we prepare building plan sets that comply with local approval standards."
   },
   {
-    "question": "Can I view different lighting setups?",
-    "answer": "Yes, we can simulate different lighting conditions and time-of-day scenes in the 3D model."
+    "question": "Can you plan a multi-floor building?",
+    "answer": "Yes, we plan multi-storey buildings with proper floor-wise detailing and connectivity."
   },
   {
-    "question": "Can you animate the 3D structure?",
-    "answer": "Yes, we can animate flythroughs or walkthroughs of the design."
+    "question": "Do you offer virtual consultations?",
+    "answer": "Yes, we offer virtual meetings via Zoom or Google Meet to discuss your project."
   },
   {
-    "question": "Do you offer packages for builders or architects?",
-    "answer": "Yes, we offer bulk and partnership packages for professionals with recurring design needs."
+    "question": "What if I don’t have a plot yet?",
+    "answer": "We can provide consulting on plot selection and recommend layouts based on plot dimensions once selected."
   },
   {
-    "question": "Can I provide feedback on the design?",
-    "answer": "Yes, we’ll share the draft version with you first and revise based on your feedback."
+    "question": "How do I get started?",
+    "answer": "You can contact us through our website form, chat widget, or email to discuss your project."
   },
   {
-    "question": "Is there a minimum project size?",
-    "answer": "No, we work on small single-room projects as well as large buildings."
+    "question": "Do you handle renovations or only new builds?",
+    "answer": "We handle both new constructions and renovation or extension plans."
   },
   {
-    "question": "Do you work internationally?",
-    "answer": "Yes, we serve clients from across the globe and deliver everything digitally."
+    "question": "Can I include eco-friendly features in my plan?",
+    "answer": "Yes, we can incorporate rainwater harvesting, natural ventilation, and energy-efficient layouts."
   },
   {
-    "question": "Do you provide structural calculations?",
-    "answer": "We focus on design and visualization. For structural safety, please consult a certified engineer."
+    "question": "Do you support Vastu corrections for existing layouts?",
+    "answer": "Yes, we can review your layout and suggest changes based on Vastu compliance."
   },
   {
-    "question": "What payment methods do you accept?",
-    "answer": "We accept UPI, bank transfers, and most major online payment gateways."
+    "question": "Is consulting included in the design package?",
+    "answer": "Yes, initial consultations are included. Extended consulting is available at an additional charge."
   },
   {
-    "question": "Do you provide documentation for contractors?",
-    "answer": "Yes, we can generate contractor-friendly layout sheets and 3D references."
+    "question": "Can I request printed copies of my plan?",
+    "answer": "Yes, we provide digital and printed copies based on your preference."
   },
   {
-    "question": "Do you offer consultations before starting?",
-    "answer": "Yes, we offer free initial consultations to understand your needs and provide the best solutions."
+    "question": "Can I request a full project report?",
+    "answer": "Yes, we can prepare a complete project report including design, estimates, and material requirements."
   },
   {
-    "question": "Can I integrate my 3D model into a website?",
-    "answer": "Yes, we can provide an embeddable 3D viewer or export the model in web-compatible format."
+    "question": "Will you offer 3D interior views in the future?",
+    "answer": "Yes, our upcoming 2D-to-3D feature will include detailed interior visualization."
   },
   {
-    "question": "What’s the best way to contact you?",
-    "answer": "You can reach us via the chat widget, contact form, or email provided on the website."
+    "question": "Can you suggest materials based on budget?",
+    "answer": "Yes, we can recommend construction materials suited to your budget and preferences."
   },
   {
-    "question": "Can I schedule a live demo of the 3D system?",
-    "answer": "Yes, you can request a live screen-sharing demo with our team."
+    "question": "Do you offer foundation planning based on soil?",
+    "answer": "Yes, our soil test results help determine suitable foundation types for your site."
   },
   {
-    "question": "Can I get source files of the project?",
-    "answer": "Yes, upon project completion and payment, we’ll share the source files used for design and modeling."
+    "question": "Is your team certified or licensed?",
+    "answer": "Yes, our team includes certified professionals with years of experience in architecture and planning."
   },
   {
-    "question": "Do you offer long-term support?",
-    "answer": "Yes, we offer support and updates for any design modifications even after project delivery."
+    "question": "Do you help with choosing the best orientation for the house?",
+    "answer": "Yes, we suggest orientations based on sunlight, wind direction, and Vastu if needed."
   },
   {
-    "question": "Is the 3D generation tool fully automated?",
-    "answer": "We use automation for speed, but every design is reviewed by a human expert for quality."
+    "question": "What types of clients do you serve?",
+    "answer": "We work with individual homeowners, contractors, builders, and land developers."
   }
 ]

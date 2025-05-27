@@ -1,3 +1,13 @@
+import bappa from "../assets/images/Testimonial/Bappa.jpg";
+import dadu from "../assets/images/Testimonial/Dadu.jpg";
+import goutam from "../assets/images/Testimonial/Goutam Naha.jpg";
+import kireeti from "../assets/images/Testimonial/Kireeti.jpg";
+import maa from "../assets/images/Testimonial/Maa.jpg";
+import papun from "../assets/images/Testimonial/Papun.jpg";
+import pishun from "../assets/images/Testimonial/Pishun.jpg";
+import tirthadadu from "../assets/images/Testimonial/Tirtha Dadu.jpg";
+import tirthamaa from "../assets/images/Testimonial/Tirtha Maa.jpg";
+import palashi from "../assets/images/Testimonial/Palashi.jpg";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -16,82 +26,82 @@ const TestimonialsSection: React.FC = () => {
     {
       id: 1,
       quote: "New Design O Craft transformed our concept into a stunning reality. Their attention to detail and innovative approach exceeded our expectations. The team was communicative and professional throughout the entire process.",
-      author: "Jennifer Martinez",
-      position: "CEO, Horizon Developments",
+      author: "SMT. Jayati Roy",
+      position: "Home Owner",
       rating: 5,
-      image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: maa
     },
     {
       id: 2,
       quote: "Working with New Design O Craft on our corporate headquarters was an exceptional experience. Their ability to blend aesthetics with functionality created a space that perfectly represents our brand identity.",
-      author: "David Chen",
-      position: "Director, Atlas Corporation",
+      author: "Sankar Kumar Das",
+      position: "Home Owner",
       rating: 4,
-      image: "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: pishun
     },
     {
       id: 3,
       quote: "The residential design New Design O Craft created for us beautifully balances modern aesthetics with comfort and practicality. They listened to our needs and delivered a home that truly enhances our lifestyle.",
-      author: "Sarah Johnson",
-      position: "Homeowner",
+      author: "Sujit Biswas",
+      position: "Home Owner",
       rating: 5,
-      image: "https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: kireeti
     },
     {
       id: 4,
       quote: "New Design O Craft turned our dream home into a reality. From blueprint to finishing touches, their design sense and execution were impeccable. Highly recommended!",
-      author: "Sarah Johnson",
-      position: "Homeowner",
+      author: "Goutam Kumar Naha",
+      position: "Developer",
       rating: 5,
-      image: "https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: goutam
     },
     {
       id: 5,
       quote: "Working with New Design O Craft was the best decision we made during our home construction. The team was patient, professional, and brought our vision to life in the most beautiful way.",
-      author: "Sarah Johnson",
-      position: "Homeowner",
+      author: "Anjali Chowdhury",
+      position: "Home Owner",
       rating: 4,
-      image: "https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: palashi
     },
     {
       id: 6,
       quote: "We were amazed by how quickly they understood what we wanted. Their 2D-to-3D planning helped us visualize everything before construction even started!",
-      author: "Sarah Johnson",
-      position: "Homeowner",
+      author: "Partha Bose",
+      position: "Home Owner",
       rating: 5,
-      image: "https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: dadu
     },
     {
       id: 7,
       quote: "The blend of creativity and practicality that New Design O Craft brings is rare. Every corner of our house has a purpose and style.",
-      author: "Sarah Johnson",
-      position: "Homeowner",
+      author: "Sikha Laha",
+      position: "Home Owner",
       rating: 4,
-      image: "https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: papun
     },
     {
       id: 8,
       quote: "What sets them apart is how personal they make the process. It’s not just a house you’re building, it’s a feeling – and New Design O Craft gets that.",
-      author: "Sarah Johnson",
-      position: "Homeowner",
+      author: "Gitarani Paul",
+      position: "Home Owner",
       rating: 4,
-      image: "https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: tirthamaa
     },
     {
       id: 9,
       quote: "From clean layouts to stunning walkthroughs, NDoC creates experiences – not just spaces.",
-      author: "Sarah Johnson",
-      position: "Homeowner",
+      author: "Azad Bhai Bappa",
+      position: "Developer",
       rating: 5,
-      image: "https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: bappa
     },
     {
       id: 10,
       quote: "ওদের ডিজাইনের মধ্যে একটা simplicity আর elegance আছে। চোখে লেগে থাকে! আমাদের আত্মীয়-স্বজনরাও খুশি।",
-      author: "Sarah Johnson",
-      position: "Homeowner",
+      author: "Babul Chandra Saha",
+      position: "Home Owner",
       rating: 5,
-      image: "https://images.pexels.com/photos/3765114/pexels-photo-3765114.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: tirthadadu
     }
   ];
   

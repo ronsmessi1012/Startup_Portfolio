@@ -1,3 +1,9 @@
+import dreamplaza from "../assets/images/Dream.jpg";
+import sankalpabhawan from "../assets/images/Sankalpa Bhawan.jpg";
+import newadd from "../assets/images/new add.jpg";
+import birla from "../assets/images/birla.jpg";
+import রেওয়াজ from "../assets/images/রেওয়াজ.jpg";
+import govindtaranivas from "../assets/images/Govind tara nivas.jpg";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
@@ -19,68 +25,66 @@ const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'Urban Heights Tower',
-      category: 'commercial',
-      image: 'https://images.pexels.com/photos/2404444/pexels-photo-2404444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      year: 2023,
-      location: 'Kolkata, India',
-      slug: 'urban-heights-tower'
-    },
-    {
-      id: 2,
-      title: 'Serenity Residence',
+      title: 'Dream Plaza',
       category: 'residential',
-      image: 'https://images.pexels.com/photos/2506990/pexels-photo-2506990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      image: dreamplaza,
       year: 2022,
       location: 'Kolkata, India',
-      slug: 'serenity-residence'
+      slug: 'Dream Plaza'
     },
     {
       id: 3,
-      title: 'Harmony Park',
-      category: 'urban',
-      image: 'https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      year: 2021,
-      location: 'Kolkata, India',
-
-      slug: 'harmony-park'
-    },
-    {
-      id: 4,
-      title: 'Tech Innovation Center',
-      category: 'commercial',
-      image: 'https://images.pexels.com/photos/3773404/pexels-photo-3773404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      title: 'Sankalpa Bhawan',
+      category: 'residential',
+      image: sankalpabhawan,
       year: 2023,
       location: 'Kolkata, India',
 
-      slug: 'tech-innovation-center'
-    },
-    {
-      id: 5,
-      title: 'Coastal Villa',
-      category: 'residential',
-      image: 'https://images.pexels.com/photos/2098624/pexels-photo-2098624.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      year: 2022,
-      location: 'Kolkata, India',
-
-      slug: 'coastal-villa'
+      slug: 'Sankalpa Bhawan'
     },
     {
       id: 6,
-      title: 'Heritage Museum',
+      title: 'Birla Mandir',
       category: 'institutional',
-      image: 'https://images.pexels.com/photos/262347/pexels-photo-262347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      year: 2021,
+      image: birla,
+      year: 1998,
       location: 'Kolkata, India',
-      slug: 'heritage-museum'
-    }
+      slug: 'Birla Mandir'
+    },
+    {
+      id: 7,
+      title: 'Heaven Guest House',
+      category: 'commercial',
+      image: newadd,
+      year: 2000,
+      location: 'Kolkata, India',
+      slug: 'Heaven Guest House'
+    },
+    {
+      id: 8,
+      title: 'রেওয়াজ',
+      category: 'residential',
+      image: রেওয়াজ,
+      year: 2010,
+      location: 'Kolkata, India',
+      slug: 'রেওয়াজ'
+    },
+    {
+      id: 9,
+      title: 'Govind Tara Nivas',
+      category: 'residential',
+      image: govindtaranivas,
+      year: 2024,
+      location: 'Kolkata, India',
+      slug: 'Govind Tara Nivas'
+    },
   ];
   
   const filters = [
     { label: 'All Projects', value: 'all' },
     { label: 'Commercial', value: 'commercial' },
     { label: 'Residential', value: 'residential' },
-    { label: 'Urban', value: 'urban' },
+    /*{ label: 'Urban', value: 'urban' },*/
     { label: 'Institutional', value: 'institutional' }
   ];
   

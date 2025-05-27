@@ -47,22 +47,22 @@ export const services: Service[] = [
     image: 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },*/
   {
-    id: 'urban-planning',
-    title: 'Urban Planning',
-    slug: 'urban-planning',
-    shortDescription: 'Comprehensive urban planning services for sustainable, livable communities.',
-    fullDescription: 'Our urban planning services focus on creating sustainable, vibrant communities through thoughtful land use and infrastructure planning. We work closely with stakeholders to develop comprehensive plans that address current needs while anticipating future growth and change.',
-    icon: 'MapPin',
+    id: 'building-planning',
+    title: 'Building Planning',
+    slug: 'building-planning',
+    shortDescription: 'Comprehensive building planning services for efficient and sustainable construction.',
+    fullDescription: 'Our building planning services provide detailed analysis and planning for construction projects of all scales. We ensure optimal space utilization, compliance with building codes, and integration of sustainable practices throughout the planning process.',
+    icon: 'Building2',
     features: [
-      'Master Planning',
-      'Land Use Planning',
-      'Transportation Planning',
-      'Public Space Design',
-      'Zoning Analysis',
-      'Community Engagement',
-      'Sustainability Planning'
+      'Site Analysis',
+      'Building Code Compliance',
+      'Space Optimization',
+      'Construction Planning',
+      'Safety Regulations',
+      'Environmental Impact',
+      'Cost-effective Solutions'
     ],
-    image: 'https://images.pexels.com/photos/2041556/pexels-photo-2041556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    image: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   {
     id: 'landscape-design',
@@ -83,6 +83,42 @@ export const services: Service[] = [
     image: 'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   },
   {
+    id: 'estimator-surveyor',
+    title: 'Estimator Surveyor & Valuer',
+    slug: 'estimator-surveyor',
+    shortDescription: 'Professional estimation, surveying, and valuation services for property and construction projects.',
+    fullDescription: 'Our estimation and surveying services provide accurate assessments of property values and construction costs. We offer detailed quantity surveying, cost estimation, and property valuation services to help clients make informed decisions about their investments.',
+    icon: 'Calculator',
+    features: [
+      'Quantity Surveying',
+      'Cost Estimation',
+      'Property Valuation',
+      'Construction Cost Analysis',
+      'Budget Planning',
+      'Risk Assessment',
+      'Market Analysis'
+    ],
+    image: 'https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  },
+  {
+    id: 'soil-testing',
+    title: 'Soil Testing',
+    slug: 'soil-testing',
+    shortDescription: 'Comprehensive soil analysis and testing services for construction projects.',
+    fullDescription: 'Our soil testing services provide detailed analysis of soil properties and characteristics to ensure proper foundation design and construction. We use advanced testing methods to determine soil composition, strength, and stability for safe and reliable construction.',
+    icon: 'Flask',
+    features: [
+      'Soil Composition Analysis',
+      'Bearing Capacity Tests',
+      'Moisture Content Analysis',
+      'Density Testing',
+      'Permeability Tests',
+      'Chemical Analysis',
+      'Foundation Recommendations'
+    ],
+    image: 'https://g3soilworks.com/wp-content/uploads/2023/07/soil-testing-agronomy-inspector-taking-soil-sampl-2021-08-26-16-53-52-utc-scaled.jpg'
+  },
+  /*{
     id: '3d-visualization',
     title: '3D Visualization',
     slug: '3d-visualization',
@@ -99,7 +135,7 @@ export const services: Service[] = [
       'Conceptual Visualization'
     ],
     image: 'https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  },
+  },*/
   {
     id: 'consulting',
     title: 'Consulting',

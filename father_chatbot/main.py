@@ -6,19 +6,21 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import google.generativeai as genai
 import logging
+import random
 
 # IMPORTANT: Replace with your actual API key!
 GEN_AI_API_KEY = "AIzaSyBTGBkFhPk6tWf9rOLI4eQinhtc1guFIbo"  # <---  Hardcoded API Key - USE WITH EXTREME CAUTION
 
-# Configure Gemini API with API key
-genai.configure(api_key=GEN_AI_API_KEY)  # Moved configuration here, before app definition
+# Configure Gemini API
+genai.configure(api_key=GEN_AI_API_KEY)
 
-# Configure logging
+# Logging setup
 logging.basicConfig(level=logging.ERROR)
 
+# Initialize FastAPI app
 app = FastAPI()
 
-# CORS middleware to allow frontend requests
+# Enable CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -29,15 +31,31 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    """Root endpoint to confirm API is working"""
-    return {"status": "API is running", "endpoints": ["/chat"]}
+    return {"status": "API is running", "endpoints": ["/chat", "/suggestions"]}
 
-# Load your QA dataset from JSON file
+# Load Q&A data
 with open("data/qa_data.json", "r", encoding="utf-8") as f:
     qa_data = json.load(f)
 
+# Predefined greetings and thank you responses
+greeting_variants = ["hi", "hello", "hey", "heyy", "heyyy", "hello!!", "hi there"]
+thank_you_variants = ["thanks", "thank you", "thx", "thank you so much", "thank you!", "thanks a lot"]
+
+predefined_replies = {
+    "greeting": [
+        "Hi there! How can I assist you today?",
+        "Hello! Looking to convert your 2D layout into 3D? I'm here to help!",
+        "Hey! Feel free to ask anything about our design services."
+    ],
+    "thanks": [
+        "You're most welcome! 😊",
+        "Glad to help! Let me know if you have more questions.",
+        "Anytime! Feel free to reach out again."
+    ]
+}
+
+# Embedder function
 def get_embedding(text: str):
-    """Get embedding using the correct Gemini API method"""
     try:
         response = genai.embed_content(
             model="models/embedding-001",
@@ -49,21 +67,16 @@ def get_embedding(text: str):
         logging.error(f"Embedding error: {e}")
         raise RuntimeError(f"Embedding error: {e}")
 
-# Initialize and build index lazily to avoid errors at import time
+# Lazy FAISS initialization
 questions = None
 index = None
 
 def initialize_index():
-    """Initialize the FAISS index, only when needed"""
     global questions, index
-    
     if questions is None:
-        # Prepare questions and their embeddings
         try:
             questions = [item["question"] for item in qa_data]
             question_embeddings = [get_embedding(q) for q in questions]
-
-            # Build FAISS index for fast similarity search
             dimension = len(question_embeddings[0])
             index = faiss.IndexFlatL2(dimension)
             index.add(np.vstack(question_embeddings))
@@ -71,52 +84,51 @@ def initialize_index():
             logging.error(f"Error initializing index: {e}")
             raise
 
-# Initialize Gemini chat model
-chat_model = genai.GenerativeModel("models/gemini-2.0-flash")  # or "models/gemini-1.5-pro" if enabled
+# Gemini chat model
+chat_model = genai.GenerativeModel("models/gemini-2.0-flash")
 
 @app.post("/chat")
 async def chat(req: Request):
-    """
-    Chat endpoint:
-    - Takes user input
-    - Embeds it
-    - Finds closest QA pair
-    - Uses the answer as context to generate a response via Gemini chat
-    """
-    # Initialize index if not already done
     if index is None:
         try:
             initialize_index()
         except Exception as e:
-            logging.error(f"Error in /chat: {e}")
+            logging.error(f"Error initializing index: {e}")
             return {"error": "Failed to initialize index"}
-        
+
     data = await req.json()
-    user_input = data.get("user_input", "")
+    user_input = data.get("user_input", "").strip().lower()
 
     if not user_input:
         return {"error": "No user_input provided"}
 
+    # Handle greetings and thank yous immediately
+    if any(greet in user_input for greet in greeting_variants):
+        return {
+            "reply": random.choice(predefined_replies["greeting"]),
+            "suggested_questions": random.sample(questions, 3)
+        }
+
+    if any(thank in user_input for thank in thank_you_variants):
+        return {
+            "reply": random.choice(predefined_replies["thanks"]),
+            "suggested_questions": random.sample(questions, 3)
+        }
+
     try:
-        # Embed the user input
         user_embedding = get_embedding(user_input)
-    except RuntimeError as e:
-        return {"error": str(e)}
+        D, I = index.search(np.array([user_embedding]).astype('float32'), k=4)
 
-    try:
-        logging.debug("Entered /chat try block")
-        logging.debug(f"User input: {user_input}")
-        
-        # Search FAISS index for closest question
-        logging.debug("Calling index.search")
-        D, I = index.search(np.array([user_embedding]).astype('float32'), k=1)
-        logging.debug("index.search returned")
-        logging.debug(f"D: {D}, I: {I}")
-        
-        top_match = qa_data[I[0][0]]
-        logging.debug(f"top_match: {top_match}")
+        top_match_idx = I[0][0]
+        top_match = qa_data[top_match_idx]
 
-        # Create prompt for Gemini chat
+        # Generate suggestions (excluding the top match)
+        suggested_questions = []
+        for idx in I[0]:
+            if idx != top_match_idx and len(suggested_questions) < 3:
+                suggested_questions.append(qa_data[idx]["question"])
+
+        # Create prompt
         prompt = f"""
 You are a helpful assistant. Use only the information provided in the context below to answer the user's question.
 
@@ -124,19 +136,25 @@ Context: {top_match['answer']}
 Question: {user_input}
 Answer:
 """
-        logging.debug(f"Prompt: {prompt}")
-
-        # Generate response from Gemini chat model
-        logging.debug("Calling chat_model.generate_content")
         response = chat_model.generate_content(prompt)
-        logging.debug("chat_model.generate_content returned")
 
-        return {"reply": response.text.strip()}
+        return {
+            "reply": response.text.strip(),
+            "suggested_questions": suggested_questions
+        }
+
     except Exception as e:
         logging.error(f"Error in /chat endpoint: {e}", exc_info=True)
         return {"error": "An error occurred while processing your request."}
 
-# Added for debugging and running locally
+@app.get("/suggestions")
+async def get_suggestions():
+    return {
+        "suggested_questions": random.sample(
+            [item["question"] for item in qa_data], 3
+        )
+    }
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000, log_level="debug")

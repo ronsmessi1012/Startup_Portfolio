@@ -70,13 +70,16 @@ const Footer: React.FC = () => {
                 <Link to="/services/architectural-design" className="text-slate-300 hover:text-amber-400 transition-colors">Architectural Design</Link>
               </li>
               <li>
-                <Link to="/services/urban-planning" className="text-slate-300 hover:text-amber-400 transition-colors">Urban Planning</Link>
+                <Link to="/services/building-planning" className="text-slate-300 hover:text-amber-400 transition-colors">Building Planning</Link>
               </li>
               <li>
                 <Link to="/services/landscape-design" className="text-slate-300 hover:text-amber-400 transition-colors">Landscape Design</Link>
               </li>
               <li>
-                <Link to="/services/3d-visualization" className="text-slate-300 hover:text-amber-400 transition-colors">3D Visualization</Link>
+                <Link to="/services/estimator-surveyor" className="text-slate-300 hover:text-amber-400 transition-colors">Estimator Surveyor & Valuer</Link>
+              </li>
+              <li>
+                <Link to="/services/soil-testing" className="text-slate-300 hover:text-amber-400 transition-colors">Soil Testing</Link>
               </li>
               <li>
                 <Link to="/services/consulting" className="text-slate-300 hover:text-amber-400 transition-colors">Consulting</Link>
