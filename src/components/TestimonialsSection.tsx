@@ -3,11 +3,11 @@ import dadu from "../assets/images/Testimonial/Dadu.jpg";
 import goutam from "../assets/images/Testimonial/Goutam Naha.jpg";
 import kireeti from "../assets/images/Testimonial/Kireeti.jpg";
 import maa from "../assets/images/Testimonial/Maa.jpg";
-import papun from "../assets/images/Testimonial/Papun.jpg";
 import pishun from "../assets/images/Testimonial/Pishun.jpg";
 import tirthadadu from "../assets/images/Testimonial/Tirtha Dadu.jpg";
 import tirthamaa from "../assets/images/Testimonial/Tirtha Maa.jpg";
 import palashi from "../assets/images/Testimonial/Palashi.jpg";
+import tapanda from "../assets/images/Testimonial/Tapanda.jpg";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -26,7 +26,7 @@ const TestimonialsSection: React.FC = () => {
     {
       id: 1,
       quote: "New Design O Craft transformed our concept into a stunning reality. Their attention to detail and innovative approach exceeded our expectations. The team was communicative and professional throughout the entire process.",
-      author: "SMT. Jayati Roy",
+      author: "Mrs. Purnima Chowdhury",
       position: "Home Owner",
       rating: 5,
       image: maa
@@ -34,7 +34,7 @@ const TestimonialsSection: React.FC = () => {
     {
       id: 2,
       quote: "Working with New Design O Craft on our corporate headquarters was an exceptional experience. Their ability to blend aesthetics with functionality created a space that perfectly represents our brand identity.",
-      author: "Sankar Kumar Das",
+      author: "Dr. Jajati Sinha",
       position: "Home Owner",
       rating: 4,
       image: pishun
@@ -58,7 +58,7 @@ const TestimonialsSection: React.FC = () => {
     {
       id: 5,
       quote: "Working with New Design O Craft was the best decision we made during our home construction. The team was patient, professional, and brought our vision to life in the most beautiful way.",
-      author: "Anjali Chowdhury",
+      author: "Palashi Sarkar",
       position: "Home Owner",
       rating: 4,
       image: palashi
@@ -66,23 +66,23 @@ const TestimonialsSection: React.FC = () => {
     {
       id: 6,
       quote: "We were amazed by how quickly they understood what we wanted. Their 2D-to-3D planning helped us visualize everything before construction even started!",
-      author: "Partha Bose",
-      position: "Home Owner",
+      author: "Ranjit Kr. Chowdhury",
+      position: "Building Planner and Owner",
       rating: 5,
       image: dadu
     },
     {
       id: 7,
       quote: "The blend of creativity and practicality that New Design O Craft brings is rare. Every corner of our house has a purpose and style.",
-      author: "Sikha Laha",
+      author: "Tapan Misra",
       position: "Home Owner",
       rating: 4,
-      image: papun
+      image: tapanda
     },
     {
       id: 8,
       quote: "What sets them apart is how personal they make the process. It’s not just a house you’re building, it’s a feeling – and New Design O Craft gets that.",
-      author: "Gitarani Paul",
+      author: "Tanaya Majumder",
       position: "Home Owner",
       rating: 4,
       image: tirthamaa
