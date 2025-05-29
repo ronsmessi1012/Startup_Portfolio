@@ -22,7 +22,7 @@ import sp3 from "../assets/images/sp3.jpg";
 import bm1 from "../assets/images/bm1.jpg";
 import bm2 from "../assets/images/bm2.jpg";
 import s1 from "../assets/images/s1.jpg";
-import s2 from "../assets/images/sb2.jpg";
+import s2 from "../assets/images/s2.jpg";
 import re1 from "../assets/images/re1.jpg";
 import re2 from "../assets/images/re2.jpg";
 import re3 from "../assets/images/re3.jpg";
@@ -101,7 +101,7 @@ export const projects: Project[] = [
   {
   "id": 4,
   "title": "Heaven Guest House",
-  "slug": "Heaven",
+  "slug": "Heaven Guest House",
   "category": "commercial",
   "location": "Kolkata, India",
   "year": 2023,
