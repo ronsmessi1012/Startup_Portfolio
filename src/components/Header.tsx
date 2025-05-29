@@ -38,7 +38,7 @@ const Header: React.FC = () => {
         { title: 'Architectural Design', path: '/services/architectural-design' },
         { title: 'Building Planning', path: '/services/building-planning' },
         { title: 'Landscape Design', path: '/services/landscape-design' },
-        { title: 'Estimator Surveyor & Valuer', path: '/services/estimator-surveyor-valuer' },
+        { title: 'Estimator Surveyor & Valuer', path: '/services/estimator-surveyor' },
         { title: 'Soil Testing', path: '/services/soil-testing' },
         { title: 'Consulting', path: '/services/consulting' },
       ]
