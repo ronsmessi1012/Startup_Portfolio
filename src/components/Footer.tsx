@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, MessageCircle } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -21,14 +21,6 @@ const Footer: React.FC = () => {
               <a href="https://www.instagram.com/ndocraft" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors">
                 <Instagram size={20} />
                 <span className="sr-only">Instagram</span>
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors">
-                <Facebook size={20} />
-                <span className="sr-only">Facebook</span>
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors">
-                <Twitter size={20} />
-                <span className="sr-only">Twitter</span>
               </a>
               <a href="https://wa.me/919875663719" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors">
                 <MessageCircle size={20} />
