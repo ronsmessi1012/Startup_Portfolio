@@ -6,24 +6,31 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-
+import usePageTracking from './hooks/usePageTracking'; // 👈 import
 
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:serviceId" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:projectId" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* Add other routes as they are implemented */}
-        </Routes>
-      </Layout>
+      <TrackingWrapper />
     </BrowserRouter>
+  );
+}
+
+function TrackingWrapper() {
+  usePageTracking(); 
+
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/:serviceId" element={<Services />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:projectId" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Layout>
   );
 }
 
