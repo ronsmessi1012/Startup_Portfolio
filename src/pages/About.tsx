@@ -1,5 +1,5 @@
 import rudranilImg from '../assets/images/Rudranil.jpg';
-import tirthaImg from '../assets/images/Tirtha.png';
+import tirthaImg from '../assets/images/Tirtha.jpg';
 import sayanImg from '../assets/images/Sayan.jpg';
 import avijitImg from '../assets/images/Avijit.jpg';
 import React, { useEffect } from 'react';
