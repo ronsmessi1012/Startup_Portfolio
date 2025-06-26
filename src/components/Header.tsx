@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,11 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Scroll to top when location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const toggleMenu = () => setIsOpen(!isOpen);
   
   const toggleDropdown = (dropdown: string) => {
@@ -36,11 +42,9 @@ const Header: React.FC = () => {
       path: '/services',
       dropdown: [
         { title: 'Architectural Design', path: '/services/architectural-design' },
+        { title: 'Interior Design', path: '/services/interior-design' },
         { title: 'Building Planning', path: '/services/building-planning' },
         { title: 'Landscape Design', path: '/services/landscape-design' },
-        { title: 'Estimator Surveyor & Valuer', path: '/services/estimator-surveyor' },
-        { title: 'Soil Testing', path: '/services/soil-testing' },
-        { title: 'Consulting', path: '/services/consulting' },
       ]
     },
     { title: 'Projects', path: '/projects' },
@@ -50,14 +54,14 @@ const Header: React.FC = () => {
 
   const getHeaderStyle = () => {
     if (!isHomePage) {
-      return 'bg-white shadow-md';
+      return 'bg-white dark:bg-slate-900 shadow-md';
     }
-    return scrolled ? 'bg-white shadow-md' : 'bg-transparent';
+    return scrolled ? 'bg-white dark:bg-slate-900 shadow-md' : 'bg-transparent';
   };
 
   const getTextStyle = (isDropdown = false) => {
     if (!isHomePage || scrolled) {
-      return isDropdown ? 'text-slate-700' : 'text-slate-700 hover:text-amber-600';
+      return isDropdown ? 'text-slate-700 dark:text-slate-300' : 'text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400';
     }
     return isDropdown ? 'text-white' : 'text-white hover:text-amber-400';
   };
@@ -72,13 +76,13 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <span className={`text-2xl font-serif font-bold ${!isHomePage || scrolled ? 'text-slate-800' : 'text-white'}`}>
-              NEW DESIGN<span className="text-amber-600"> O CRAFT</span>
+            <span className={`text-xl sm:text-2xl font-serif font-bold ${!isHomePage || scrolled ? 'text-slate-800 dark:text-white' : 'text-white'}`}>
+              NEW DESIGN <span className="text-amber-600">O CRAFT</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden lg:flex space-x-6 items-center">
             {menuItems.map((item) => (
               <div key={item.title} className="relative group">
                 {item.dropdown ? (
@@ -92,7 +96,7 @@ const Header: React.FC = () => {
                     <ChevronDown 
                       size={16} 
                       className={`ml-1 transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''} ${
-                        !isHomePage || scrolled ? 'text-slate-700' : 'text-white'
+                        !isHomePage || scrolled ? 'text-slate-700 dark:text-slate-300' : 'text-white'
                       }`} 
                     />
                   </div>
@@ -113,13 +117,13 @@ const Header: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 15 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-2 z-20"
+                        className="absolute left-0 mt-2 w-64 bg-white dark:bg-slate-800 shadow-lg rounded-md py-2 z-20"
                       >
                         {item.dropdown.map((dropdownItem) => (
                           <Link
                             key={dropdownItem.title}
                             to={dropdownItem.path}
-                            className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-600"
+                            className="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-amber-50 dark:hover:bg-slate-700 hover:text-amber-600 dark:hover:text-amber-400"
                           >
                             {dropdownItem.title}
                           </Link>
@@ -130,20 +134,26 @@ const Header: React.FC = () => {
                 )}
               </div>
             ))}
+            
+            {/* Theme Toggle */}
+            <ThemeToggle />
           </nav>
 
           {/* Mobile Navigation Button */}
-          <button 
-            onClick={toggleMenu} 
-            className="md:hidden"
-            aria-label="Menu"
-          >
-            {isOpen ? (
-              <X className={!isHomePage || scrolled ? 'text-slate-800' : 'text-white'} size={24} />
-            ) : (
-              <Menu className={!isHomePage || scrolled ? 'text-slate-800' : 'text-white'} size={24} />
-            )}
-          </button>
+          <div className="lg:hidden flex items-center space-x-2">
+            <ThemeToggle />
+            <button 
+              onClick={toggleMenu} 
+              className="p-2"
+              aria-label="Menu"
+            >
+              {isOpen ? (
+                <X className={!isHomePage || scrolled ? 'text-slate-800 dark:text-white' : 'text-white'} size={24} />
+              ) : (
+                <Menu className={!isHomePage || scrolled ? 'text-slate-800 dark:text-white' : 'text-white'} size={24} />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -154,7 +164,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden bg-white rounded-b-lg shadow-lg mt-2 overflow-hidden"
+              className="lg:hidden bg-white dark:bg-slate-800 rounded-b-lg shadow-lg mt-2 overflow-hidden"
             >
               <nav className="flex flex-col space-y-2 py-4">
                 {menuItems.map((item) => (
@@ -162,7 +172,7 @@ const Header: React.FC = () => {
                     {item.dropdown ? (
                       <div>
                         <div 
-                          className="flex items-center justify-between px-4 py-2 text-slate-700 hover:bg-amber-50 hover:text-amber-600 cursor-pointer"
+                          className="flex items-center justify-between px-4 py-2 text-slate-700 dark:text-slate-300 hover:bg-amber-50 dark:hover:bg-slate-700 hover:text-amber-600 dark:hover:text-amber-400 cursor-pointer"
                           onClick={() => toggleDropdown(item.title)}
                         >
                           <span>{item.title}</span>
@@ -179,13 +189,13 @@ const Header: React.FC = () => {
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
                               transition={{ duration: 0.2 }}
-                              className="bg-slate-50 py-2"
+                              className="bg-slate-50 dark:bg-slate-700 py-2"
                             >
                               {item.dropdown.map((dropdownItem) => (
                                 <Link
                                   key={dropdownItem.title}
                                   to={dropdownItem.path}
-                                  className="block px-8 py-2 text-sm text-slate-600 hover:bg-amber-50 hover:text-amber-600"
+                                  className="block px-8 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-amber-50 dark:hover:bg-slate-600 hover:text-amber-600 dark:hover:text-amber-400"
                                   onClick={() => setIsOpen(false)}
                                 >
                                   {dropdownItem.title}
@@ -198,7 +208,7 @@ const Header: React.FC = () => {
                     ) : (
                       <Link 
                         to={item.path} 
-                        className="block px-4 py-2 text-slate-700 hover:bg-amber-50 hover:text-amber-600"
+                        className="block px-4 py-2 text-slate-700 dark:text-slate-300 hover:bg-amber-50 dark:hover:bg-slate-700 hover:text-amber-600 dark:hover:text-amber-400"
                         onClick={() => setIsOpen(false)}
                       >
                         {item.title}

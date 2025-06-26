@@ -64,9 +64,9 @@ const About: React.FC = () => {
   return (
     <>
       {/* About Hero */}
-      <section className="relative py-20 lg:py-32 bg-slate-900">
+      <section className="relative py-20 lg:py-32 bg-slate-900 dark:bg-slate-950">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style={{ backgroundImage: 'url("https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")' }} />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-slate-300"
+              className="text-lg md:text-xl text-slate-300 dark:text-slate-400"
             >
               Our passion for innovative design and commitment to excellence have made us a leader in architectural solutions for over 25 years.
             </motion.p>
@@ -95,20 +95,31 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-white dark:bg-slate-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">Our Story</h2>
-            <div className="w-20 h-1 bg-amber-500 mb-6"></div>
-            <p className="text-lg text-slate-700 mb-4">Founded in 1995 by Avijit Chowdhury, New Design O Craft began as a small architectural practice with a big vision.</p>
-            <p className="text-slate-600 mb-4">Over the past 25 years, we've grown into a multidisciplinary team of architects, designers, and planners.</p>
-            <p className="text-slate-600 mb-6">Our core values of innovation, sustainability, client satisfaction, and design excellence guide every project.</p>
-            <blockquote className="italic border-l-4 border-amber-500 pl-4 text-slate-700">
-              "Architecture is not just about creating buildings; it's about creating experiences."
-              <footer className="mt-2 text-slate-600 not-italic">— Avijit Chowdhury, Founder</footer>
-            </blockquote>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 dark:text-white mb-4">Our Story</h2>
+              <div className="w-20 h-1 bg-amber-500 mb-6"></div>
+              <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
+                Founded in 1998 by Avijit Chowdhury, New Design O Craft began as a small architectural practice with a big vision: to create innovative spaces that inspire and enhance the human experience.
+              </p>
+              <p className="text-slate-600 dark:text-slate-400 mb-4">
+                Over the past 25 years, we've grown into a multidisciplinary team of architects, designers, and planners who collaborate to deliver exceptional architectural solutions across residential, commercial, and institutional sectors.
+              </p>
+              <p className="text-slate-600 dark:text-slate-400 mb-6">
+                Throughout our journey, we've remained committed to our core values of innovation, sustainability, client satisfaction, and design excellence. These principles guide every project we undertake, from initial concept to final construction.
+              </p>
+              <blockquote className="italic border-l-4 border-amber-500 pl-4 text-slate-700 dark:text-slate-300">
+                "Architecture is not just about creating buildings; it's about creating experiences, stories, and memories through thoughtfully designed spaces."
+                <footer className="mt-2 text-slate-600 dark:text-slate-400 not-italic">— Michael Anderson, Founder</footer>
+              </blockquote>
+            </motion.div>
             
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -119,12 +130,12 @@ const About: React.FC = () => {
             >
               <img 
                 src="https://images.pexels.com/photos/3184434/pexels-photo-3184434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="New Design O craft Team" 
-                className="rounded-lg shadow-lg"
+                alt="New Design O Craft Team" 
+                className="rounded-lg shadow-lg w-full h-auto"
               />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 p-4 md:p-8 rounded-lg shadow-lg text-center">
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-slate-800 bg-opacity-90 dark:bg-opacity-90 p-4 md:p-8 rounded-lg shadow-lg text-center">
                 <span className="text-3xl md:text-4xl font-bold text-amber-600">25+</span>
-                <p className="text-slate-800 font-medium">Years of Excellence</p>
+                <p className="text-slate-800 dark:text-white font-medium">Years of Excellence</p>
               </div>
             </motion.div>
           </div>
@@ -132,8 +143,8 @@ const About: React.FC = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-slate-50">
-        <div className="container mx-auto px-4">
+      <section className="py-16 bg-slate-50 dark:bg-slate-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {stats.map((stat, index) => (
               <motion.div
@@ -142,13 +153,13 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white rounded-lg p-6 text-center shadow-md"
+                className="bg-white dark:bg-slate-800 rounded-lg p-6 text-center shadow-md"
               >
                 <div className="flex justify-center mb-3">
                   {stat.icon}
                 </div>
-                <span className="block text-3xl font-bold text-slate-800 mb-1">{stat.value}</span>
-                <span className="text-slate-600">{stat.label}</span>
+                <span className="block text-3xl font-bold text-slate-800 dark:text-white mb-1">{stat.value}</span>
+                <span className="text-slate-600 dark:text-slate-300">{stat.label}</span>
               </motion.div>
             ))}
           </div>
@@ -156,8 +167,8 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-white dark:bg-slate-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -165,9 +176,9 @@ const About: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">Our Values</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 dark:text-white mb-4">Our Values</h2>
             <div className="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
-            <p className="max-w-2xl mx-auto text-slate-600 text-lg">
+            <p className="max-w-2xl mx-auto text-slate-600 dark:text-slate-300 text-lg">
               Our core values guide every project and decision we make.
             </p>
           </motion.div>
@@ -201,11 +212,11 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-slate-50 rounded-lg p-6 text-center"
+                className="bg-slate-50 dark:bg-slate-700 rounded-lg p-6 text-center"
               >
                 <div className="text-4xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-3">{value.title}</h3>
-                <p className="text-slate-600">{value.description}</p>
+                <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-3">{value.title}</h3>
+                <p className="text-slate-600 dark:text-slate-300">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -213,8 +224,8 @@ const About: React.FC = () => {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-slate-50 dark:bg-slate-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -222,9 +233,9 @@ const About: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">Our Leadership Team</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 dark:text-white mb-4">Our Leadership Team</h2>
             <div className="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
-            <p className="max-w-2xl mx-auto text-slate-600 text-lg">
+            <p className="max-w-2xl mx-auto text-slate-600 dark:text-slate-300 text-lg">
               Meet the talented individuals who lead our firm with expertise and vision.
             </p>
           </motion.div>
@@ -237,7 +248,7 @@ const About: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                className="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden"
               >
                 <div className="aspect-w-3 aspect-h-4">
                   <img 
@@ -247,9 +258,9 @@ const About: React.FC = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-slate-800 mb-1">{member.name}</h3>
-                  <p className="text-amber-600 mb-4">{member.position}</p>
-                  <p className="text-slate-600 text-sm mb-4">{member.bio}</p>
+                  <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-1">{member.name}</h3>
+                  <p className="text-amber-600 dark:text-amber-400 mb-4">{member.position}</p>
+                  <p className="text-slate-600 dark:text-slate-300 text-sm mb-4">{member.bio}</p>
                   {member.social && (
                     <div className="flex items-center justify-center space-x-4">
                       {member.social.portfolio && (
@@ -257,7 +268,7 @@ const About: React.FC = () => {
                           href={member.social.portfolio}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-slate-600 hover:text-amber-600 transition-colors"
+                          className="text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                           aria-label="Portfolio"
                         >
                           <Briefcase size={20} />
@@ -268,7 +279,7 @@ const About: React.FC = () => {
                           href={member.social.whatsapp}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-slate-600 hover:text-amber-600 transition-colors"
+                          className="text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                           aria-label="WhatsApp"
                         >
                           <MessageSquare size={20} />
@@ -277,7 +288,7 @@ const About: React.FC = () => {
                       {member.social.email && (
                         <a 
                           href={member.social.email}
-                          className="text-slate-600 hover:text-amber-600 transition-colors"
+                          className="text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                           aria-label="Email"
                         >
                           <Mail size={20} />

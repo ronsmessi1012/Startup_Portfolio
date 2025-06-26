@@ -12,10 +12,15 @@ const ChatWidget: React.FC = () => {
   const [suggestedQuestions, setSuggestedQuestions] = useState<string[]>([]);
   const chatRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     if (isOpen) {
-      fetch('http://127.0.0.1:8000/suggestions')
+      fetch('https://chatbot-1-uj0c.onrender.com/suggestions')
         .then(res => res.json())
         .then(data => setSuggestedQuestions(data.suggested_questions || []))
         .catch(err => console.error("Suggestion fetch error:", err));
@@ -33,13 +38,17 @@ const ChatWidget: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isLoading]);
+
   const sendMessage = async (userMessage: string) => {
     setMessages(prev => [...prev, { text: userMessage, isUser: true }]);
     setInputText('');
     setIsLoading(true);
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/chat', {
+      const res = await fetch('https://chatbot-1-uj0c.onrender.com/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +98,7 @@ const ChatWidget: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-16 right-0 w-80 bg-white rounded-lg shadow-xl overflow-hidden"
+            className="absolute bottom-16 right-0 w-80 bg-white dark:bg-slate-800 rounded-lg shadow-xl overflow-hidden"
           >
             {/* Chat Header */}
             <div className="bg-amber-600 p-4 text-white">
@@ -105,7 +114,11 @@ const ChatWidget: React.FC = () => {
             </div>
 
             {/* Chat Messages */}
-            <div className="h-96 overflow-y-auto p-4 bg-slate-50">
+            <div
+              className="h-96 overflow-y-auto p-4 bg-slate-50 dark:bg-slate-700"
+              onWheel={(e) => e.stopPropagation()}
+              onTouchMove={(e) => e.stopPropagation()}
+            >
               {messages.map((message, index) => (
                 <div
                   key={index}
@@ -115,7 +128,7 @@ const ChatWidget: React.FC = () => {
                     className={`inline-block rounded-lg px-4 py-2 max-w-[80%] ${
                       message.isUser
                         ? 'bg-amber-600 text-white'
-                        : 'bg-white text-slate-800 shadow'
+                        : 'bg-white dark:bg-slate-600 text-slate-800 dark:text-white shadow'
                     }`}
                   >
                     {message.text}
@@ -123,22 +136,24 @@ const ChatWidget: React.FC = () => {
                 </div>
               ))}
               {isLoading && (
-                <div className="flex items-center space-x-2 text-slate-500">
+                <div className="flex items-center space-x-2 text-slate-500 dark:text-slate-400 mb-4">
                   <Loader2 className="animate-spin" size={16} />
                   <span className="text-sm">Thinking...</span>
                 </div>
               )}
+              {/* Scroll anchor */}
+              <div ref={messagesEndRef} />
             </div>
 
             {/* Suggested Questions */}
             {suggestedQuestions.length > 0 && (
-              <div className="p-2 bg-white border-t border-slate-100">
+              <div className="p-2 bg-white dark:bg-slate-800 border-t border-slate-100 dark:border-slate-600">
                 <div className="flex flex-wrap gap-2">
                   {suggestedQuestions.map((question, index) => (
                     <button
                       key={index}
                       onClick={() => handleSuggestionClick(question)}
-                      className="text-sm px-3 py-1 rounded-full bg-amber-50 text-amber-700 hover:bg-amber-100 transition-colors"
+                      className="text-sm px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/30 transition-colors"
                     >
                       {question}
                     </button>
@@ -148,7 +163,7 @@ const ChatWidget: React.FC = () => {
             )}
 
             {/* Chat Input */}
-            <form onSubmit={handleSubmit} className="p-4 bg-white border-t">
+            <form onSubmit={handleSubmit} className="p-4 bg-white dark:bg-slate-800 border-t dark:border-slate-600">
               <div className="flex gap-2">
                 <input
                   ref={inputRef}
@@ -156,14 +171,14 @@ const ChatWidget: React.FC = () => {
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-1 px-3 py-2 border rounded-md focus:outline-none focus:border-amber-500"
+                  className="flex-1 px-3 py-2 border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white rounded-md focus:outline-none focus:border-amber-500"
                   disabled={isLoading}
                 />
                 <button
                   type="submit"
                   className={`p-2 rounded-md transition-colors ${
                     isLoading 
-                      ? 'bg-slate-300 cursor-not-allowed' 
+                      ? 'bg-slate-300 dark:bg-slate-600 cursor-not-allowed' 
                       : 'bg-amber-600 hover:bg-amber-700 text-white'
                   }`}
                   disabled={isLoading}
@@ -176,11 +191,11 @@ const ChatWidget: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Chat Button */}
+      {/* Chat Toggle Button */}
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        onClick={() => setIsOpen(true)}
+        onClick={() => setIsOpen(prev => !prev)}
         className="bg-amber-600 text-white p-4 rounded-full shadow-lg hover:bg-amber-700 transition-colors"
       >
         <MessageCircle size={24} />

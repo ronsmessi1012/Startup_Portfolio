@@ -1,6 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Ruler, PenTool,Building2,Calculator,FlaskRound as Flask, MapPin, Home, FileImage, Users } from 'lucide-react';
+import {
+  Ruler,
+  Building2,
+  Home,
+  Calculator,
+  FlaskRound as Flask,
+  Users
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ServiceCardProps {
@@ -18,16 +25,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, del
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className="bg-white rounded-lg shadow-lg p-6 border-t-4 border-amber-500 hover:shadow-xl transition-shadow duration-300"
+      className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 border-t-4 border-amber-500 hover:shadow-xl transition-shadow duration-300"
     >
-      <div className="bg-amber-50 w-16 h-16 rounded-lg flex items-center justify-center text-amber-600 mb-4">
+      <div className="bg-amber-50 dark:bg-amber-900/20 w-16 h-16 rounded-lg flex items-center justify-center text-amber-600 dark:text-amber-400 mb-4">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold text-slate-800 mb-3">{title}</h3>
-      <p className="text-slate-600 mb-4">{description}</p>
-      <Link to={link} className="inline-flex items-center text-amber-600 hover:text-amber-800 font-medium">
+      <h3 className="text-xl font-semibold text-slate-800 dark:text-white mb-3">{title}</h3>
+      <p className="text-slate-600 dark:text-slate-300 mb-4">{description}</p>
+      <Link
+        to={link}
+        className="inline-flex items-center text-amber-600 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 font-medium"
+      >
         Learn more
-        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
       </Link>
@@ -43,12 +53,6 @@ const ServicesSection: React.FC = () => {
       icon: <Ruler size={28} />,
       link: '/services/architectural-design'
     },
-    /*{
-      title: 'Interior Design',
-      description: 'Transform spaces with innovative interior designs that reflect your personal style while maximizing functionality and comfort.',
-      icon: <PenTool size={28} />,
-      link: '/services/interior-design'
-    },*/
     {
       title: 'Building Planning',
       description: 'Comprehensive building planning services ensuring efficient space utilization and compliance with building codes.',
@@ -67,7 +71,7 @@ const ServicesSection: React.FC = () => {
       icon: <Calculator size={28} />,
       link: '/services/estimator-surveyor'
     },
-     {
+    {
       title: 'Soil Testing',
       description: 'Comprehensive soil analysis and testing services to ensure proper foundation design and construction stability.',
       icon: <Flask size={28} />,
@@ -82,8 +86,8 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-slate-50 dark:bg-slate-900">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,9 +95,9 @@ const ServicesSection: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-4">Our Services</h2>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 dark:text-white mb-4">Our Services</h2>
           <div className="w-20 h-1 bg-amber-500 mx-auto mb-6"></div>
-          <p className="max-w-2xl mx-auto text-slate-600 text-lg">
+          <p className="max-w-2xl mx-auto text-slate-600 dark:text-slate-300 text-lg">
             We offer a comprehensive range of architectural and design services tailored to meet your specific needs and vision.
           </p>
         </motion.div>

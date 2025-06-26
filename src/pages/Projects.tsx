@@ -8,10 +8,10 @@ import { ArrowLeft } from 'lucide-react';
 const Projects: React.FC = () => {
   const { projectId } = useParams();
   const [activeFilter, setActiveFilter] = useState('all');
-  
+
   useEffect(() => {
-    document.title = projectId 
-      ? `${projects.find(p => p.slug === projectId)?.title || 'Project'} - New Design O Craft` 
+    document.title = projectId
+      ? `${projects.find(p => p.slug === projectId)?.title || 'Project'} - New Design O Craft`
       : 'Our Projects - New Design O Craft';
   }, [projectId]);
 
@@ -31,11 +31,11 @@ const Projects: React.FC = () => {
 
   if (projectId && !selectedProject) {
     return (
-      <div className="min-h-screen bg-white py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold text-slate-800">Project Not Found</h1>
-          <p className="mt-4 text-slate-600">The requested project could not be found.</p>
-          <Link to="/projects" className="mt-6 inline-block text-amber-600 hover:text-amber-700">
+      <div className="min-h-screen bg-white dark:bg-slate-800 py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold text-slate-800 dark:text-white">Project Not Found</h1>
+          <p className="mt-4 text-slate-600 dark:text-slate-300">The requested project could not be found.</p>
+          <Link to="/projects" className="mt-6 inline-block text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300">
             View All Projects
           </Link>
         </div>
@@ -46,12 +46,12 @@ const Projects: React.FC = () => {
   if (selectedProject) {
     return (
       <>
-        <section className="relative py-20 lg:py-32 bg-slate-900">
+        <section className="relative py-20 lg:py-32 bg-slate-900 dark:bg-slate-950">
           <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style={{ backgroundImage: `url(${selectedProject.mainImage})` }} />
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-3xl mx-auto">
-              <Link 
-                to="/projects" 
+              <Link
+                to="/projects"
                 className="inline-flex items-center text-white hover:text-amber-400 mb-8 transition-colors"
               >
                 <ArrowLeft className="mr-2" size={20} />
@@ -75,17 +75,17 @@ const Projects: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-slate-300"
+                className="text-slate-300 dark:text-slate-400"
               >
                 <p className="text-lg mb-4">{selectedProject.description}</p>
                 <div className="flex flex-wrap gap-4">
                   <span className="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-sm">
                     {selectedProject.category}
                   </span>
-                  <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm">
+                  <span className="bg-slate-800 dark:bg-slate-700 text-slate-300 dark:text-slate-400 px-3 py-1 rounded-full text-sm">
                     {selectedProject.location}
                   </span>
-                  <span className="bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm">
+                  <span className="bg-slate-800 dark:bg-slate-700 text-slate-300 dark:text-slate-400 px-3 py-1 rounded-full text-sm">
                     {selectedProject.year}
                   </span>
                 </div>
@@ -94,8 +94,8 @@ const Projects: React.FC = () => {
           </div>
         </section>
 
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
+        <section className="py-20 bg-white dark:bg-slate-800">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                 <motion.div
@@ -104,8 +104,8 @@ const Projects: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h2 className="text-2xl font-serif font-bold text-slate-800 mb-4">The Challenge</h2>
-                  <p className="text-slate-600">{selectedProject.challenge}</p>
+                  <h2 className="text-2xl font-serif font-bold text-slate-800 dark:text-white mb-4">The Challenge</h2>
+                  <p className="text-slate-600 dark:text-slate-300">{selectedProject.challenge}</p>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
@@ -113,8 +113,8 @@ const Projects: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
                 >
-                  <h2 className="text-2xl font-serif font-bold text-slate-800 mb-4">Our Solution</h2>
-                  <p className="text-slate-600">{selectedProject.solution}</p>
+                  <h2 className="text-2xl font-serif font-bold text-slate-800 dark:text-white mb-4">Our Solution</h2>
+                  <p className="text-slate-600 dark:text-slate-300">{selectedProject.solution}</p>
                 </motion.div>
               </div>
 
@@ -125,8 +125,8 @@ const Projects: React.FC = () => {
                 transition={{ duration: 0.8 }}
                 className="mb-16"
               >
-                <h2 className="text-2xl font-serif font-bold text-slate-800 mb-4">The Result</h2>
-                <p className="text-slate-600">{selectedProject.result}</p>
+                <h2 className="text-2xl font-serif font-bold text-slate-800 dark:text-white mb-4">The Result</h2>
+                <p className="text-slate-600 dark:text-slate-300">{selectedProject.result}</p>
               </motion.div>
 
               <motion.div
@@ -135,7 +135,7 @@ const Projects: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <h2 className="text-2xl font-serif font-bold text-slate-800 mb-8">Project Gallery</h2>
+                <h2 className="text-2xl font-serif font-bold text-slate-800 dark:text-white mb-8">Project Gallery</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {selectedProject.galleryImages.map((image, index) => (
                     <motion.div
@@ -149,7 +149,7 @@ const Projects: React.FC = () => {
                       <img 
                         src={image} 
                         alt={`${selectedProject.title} - Image ${index + 1}`}
-                        className="object-cover w-full h-full rounded-lg"
+                        className="object-cover w-full h-64 rounded-lg"
                       />
                     </motion.div>
                   ))}
@@ -166,9 +166,9 @@ const Projects: React.FC = () => {
 
   return (
     <>
-      <section className="relative py-20 lg:py-32 bg-slate-900">
+      <section className="relative py-20 lg:py-32 bg-slate-900 dark:bg-slate-950">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style={{ backgroundImage: 'url("https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")' }} />
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -188,7 +188,7 @@ const Projects: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-slate-300"
+              className="text-lg md:text-xl text-slate-300 dark:text-slate-400"
             >
               Explore our portfolio of innovative architectural designs
             </motion.p>
@@ -196,8 +196,8 @@ const Projects: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-white dark:bg-slate-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {filters.map(filter => (
               <button
@@ -206,7 +206,7 @@ const Projects: React.FC = () => {
                 className={`px-4 py-2 rounded-full text-sm transition-colors duration-300 ${
                   activeFilter === filter.value 
                     ? 'bg-amber-500 text-white' 
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                 }`}
               >
                 {filter.label}
@@ -243,9 +243,9 @@ const Projects: React.FC = () => {
                     </div>
                   </div>
                   <div className="mt-4">
-                    <span className="text-amber-600 text-sm uppercase tracking-wider">{project.category}</span>
-                    <h3 className="text-xl font-semibold text-slate-800 group-hover:text-amber-600 transition-colors">{project.title}</h3>
-                    <div className="text-slate-500 text-sm mt-1">
+                    <span className="text-amber-600 dark:text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
+                    <h3 className="text-xl font-semibold text-slate-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">{project.title}</h3>
+                    <div className="text-slate-500 dark:text-slate-400 text-sm mt-1">
                       {project.location} • {project.year}
                     </div>
                   </div>
