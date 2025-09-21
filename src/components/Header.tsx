@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
+import { useAuth } from '../contexts/AuthContext';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -137,6 +139,15 @@ const Header: React.FC = () => {
             
             {/* Theme Toggle */}
             <ThemeToggle />
+            
+            {/* Client Portal Link */}
+            <Link
+              to={isAuthenticated ? "/dashboard" : "/login"}
+              className={`flex items-center font-medium ${getTextStyle()} transition-colors duration-200 ml-4`}
+            >
+              <User size={18} className="mr-1" />
+              {isAuthenticated ? 'Dashboard' : 'Client Portal'}
+            </Link>
           </nav>
 
           {/* Mobile Navigation Button */}
@@ -217,6 +228,18 @@ const Header: React.FC = () => {
                   </div>
                 ))}
               </nav>
+              
+              {/* Mobile Client Portal Link */}
+              <div className="px-4 py-2 border-t border-slate-200 dark:border-slate-600">
+                <Link
+                  to={isAuthenticated ? "/dashboard" : "/login"}
+                  className="flex items-center text-slate-700 dark:text-slate-300 hover:bg-amber-50 dark:hover:bg-slate-700 hover:text-amber-600 dark:hover:text-amber-400 py-2 px-2 rounded-md transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <User size={18} className="mr-2" />
+                  {isAuthenticated ? 'Dashboard' : 'Client Portal'}
+                </Link>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

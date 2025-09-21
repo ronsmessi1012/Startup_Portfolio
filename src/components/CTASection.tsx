@@ -38,8 +38,15 @@ const CTASection: React.FC = () => {
               </Link>
               
               <Link 
-                to="/services" 
+                to="/login" 
                 className="bg-transparent border border-white hover:border-amber-400 text-white hover:text-amber-400 font-medium py-3 px-8 rounded-md transition duration-300"
+              >
+                Client Portal
+              </Link>
+              
+              <Link 
+                to="/services" 
+                className="bg-transparent border border-white hover:border-amber-400 text-white hover:text-amber-400 font-medium py-3 px-8 rounded-md transition duration-300 hidden sm:block"
               >
                 Explore Our Services
               </Link>
