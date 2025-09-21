@@ -4,22 +4,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line
 } from 'recharts';
-import { 
-  LogOut, 
-  Home, 
-  BarChart3, 
-  CheckCircle, 
-  Clock, 
-  Cube, 
-  Smartphone,
-  QrCode,
-  CreditCard,
-  User,
-  Building,
-  Palette,
-  Hammer,
-  Eye
-} from 'lucide-react';
+import { LogOut, Home, BarChart3, CheckCircle, Clock, Cuboid as Cube, Smartphone, QrCode, CreditCard, User, Building, Palette, Hammer, Eye } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import QRCode from 'qrcode';
 
