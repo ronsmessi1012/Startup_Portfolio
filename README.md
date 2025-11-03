@@ -62,3 +62,4 @@ This project includes a chatbot using the Gemini API (or OpenAI-compatible). The
 Dynamic suggested questions
 
 Answering predefined FAQs
+# Portfolio_demo
