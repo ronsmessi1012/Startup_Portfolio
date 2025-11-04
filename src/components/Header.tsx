@@ -80,9 +80,13 @@ const Header: React.FC = () => {
 
   const getTextStyle = (isDropdown = false) => {
     if (!isHomePage || scrolled) {
-      return isDropdown ? 'text-slate-700 dark:text-slate-300' : 'text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400';
+      // Ensure dropdown labels (e.g., "Services") also get a hover color
+      return isDropdown
+        ? 'text-slate-700 dark:text-slate-300 hover:text-amber-400 dark:hover:text-amber-400'
+        : 'text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400';
     }
-    return isDropdown ? 'text-white' : 'text-white hover:text-amber-400';
+    // On transparent header (home top), allow dropdown labels to hover to amber-400
+    return isDropdown ? 'text-white hover:text-amber-400' : 'text-white hover:text-amber-400';
   };
 
   return (
@@ -110,14 +114,16 @@ const Header: React.FC = () => {
                     onClick={item.title === 'Services' ? () => toggleDropdown(item.title) : undefined}
                   >
                     <span 
-                      className={`font-medium ${getTextStyle(true)} transition-colors duration-200`}
+                      className={`font-medium ${getTextStyle(true)} transition-colors duration-200 ${activeDropdown === item.title ? 'text-amber-400' : ''}`}
                     >
                       {item.title}
                     </span>
                     <ChevronDown 
                       size={16} 
                       className={`ml-1 transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''} ${
-                        !isHomePage || scrolled ? 'text-slate-700 dark:text-slate-300' : 'text-white'
+                        activeDropdown === item.title
+                          ? 'text-amber-400'
+                          : (!isHomePage || scrolled ? 'text-slate-700 dark:text-slate-300' : 'text-white')
                       }`} 
                     />
                   </div>
