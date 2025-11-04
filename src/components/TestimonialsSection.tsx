@@ -145,7 +145,7 @@ const TestimonialsSection: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 md:p-10"
+            className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 md:p-10 h-[15rem] md:h-64"
             whileHover={{ scale: 1.02 }}
           >
             <div className="flex flex-col md:flex-row items-center gap-6">
@@ -156,13 +156,13 @@ const TestimonialsSection: React.FC = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex-1">
+              <div className="flex-1 flex flex-col">
                 <div className="flex mb-3">
                   {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                     <Star key={i} size={20} className="text-amber-500 fill-amber-500" />
                   ))}
                 </div>
-                <blockquote className="text-slate-700 dark:text-slate-300 text-lg italic mb-4">
+                <blockquote className="text-slate-700 dark:text-slate-300 text-lg italic mb-4 flex-1 overflow-hidden">
                   "{testimonials[currentIndex].quote}"
                 </blockquote>
                 <cite className="not-italic">
