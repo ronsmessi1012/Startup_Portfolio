@@ -39,3 +39,19 @@ dist/
 # ---- OS generated ----
 Thumbs.db
 .DS_Store
+
+# Dependencies
+/node_modules
+/vendor
+
+# Build & Cache files
+/dist
+/build
+.cache
+
+# OS/Editor specific files
+.DS_Store
+.vscode/
+
+# Logs
+*.log
