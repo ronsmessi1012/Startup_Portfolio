@@ -38,6 +38,18 @@ Startup_Portfolio/
 
 ## 🚀 Getting Started
 
+### Prerequisites
+
+- Node.js 20.19.x (LTS) or 22.12.x+
+- npm 10+
+
+If you use nvm, this repository includes an `.nvmrc` file. You can switch automatically:
+
+```bash
+nvm install
+nvm use
+```
+
 ### 1. Clone the repository
 
 ```bash
@@ -53,6 +65,12 @@ npm install
 Start development server  
 ```bash
 npm run dev
+```
+
+If you see an error about unsupported Node.js version (e.g., Node 21.x), switch Node using nvm as above, then reinstall deps:
+
+```bash
+npm ci # or: npm install
 ```
 
 ### 2. 🧠 AI Chatbot Integration

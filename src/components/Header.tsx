@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,6 +8,7 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const navRef = useRef<HTMLElement | null>(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -34,6 +35,22 @@ const Header: React.FC = () => {
   const toggleDropdown = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
+
+  // Close dropdown on outside click (desktop nav)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        activeDropdown !== null &&
+        navRef.current &&
+        !navRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [activeDropdown]);
 
   const menuItems = [
     { title: 'Home', path: '/' },
@@ -63,9 +80,13 @@ const Header: React.FC = () => {
 
   const getTextStyle = (isDropdown = false) => {
     if (!isHomePage || scrolled) {
-      return isDropdown ? 'text-slate-700 dark:text-slate-300' : 'text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400';
+      // Ensure dropdown labels (e.g., "Services") also get a hover color
+      return isDropdown
+        ? 'text-slate-700 dark:text-slate-300 hover:text-amber-400 dark:hover:text-amber-400'
+        : 'text-slate-700 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400';
     }
-    return isDropdown ? 'text-white' : 'text-white hover:text-amber-400';
+    // On transparent header (home top), allow dropdown labels to hover to amber-400
+    return isDropdown ? 'text-white hover:text-amber-400' : 'text-white hover:text-amber-400';
   };
 
   return (
@@ -84,21 +105,25 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-6 items-center">
+          <nav ref={navRef} className="hidden lg:flex space-x-6 items-center">
             {menuItems.map((item) => (
               <div key={item.title} className="relative group">
                 {item.dropdown ? (
-                  <div className="flex items-center cursor-pointer">
+                  <div
+                    className="flex items-center cursor-pointer"
+                    onClick={item.title === 'Services' ? () => toggleDropdown(item.title) : undefined}
+                  >
                     <span 
-                      className={`font-medium ${getTextStyle(true)} transition-colors duration-200`}
-                      onClick={() => toggleDropdown(item.title)}
+                      className={`font-medium ${getTextStyle(true)} transition-colors duration-200 ${activeDropdown === item.title ? 'text-amber-400' : ''}`}
                     >
                       {item.title}
                     </span>
                     <ChevronDown 
                       size={16} 
                       className={`ml-1 transition-transform duration-200 ${activeDropdown === item.title ? 'rotate-180' : ''} ${
-                        !isHomePage || scrolled ? 'text-slate-700 dark:text-slate-300' : 'text-white'
+                        activeDropdown === item.title
+                          ? 'text-amber-400'
+                          : (!isHomePage || scrolled ? 'text-slate-700 dark:text-slate-300' : 'text-white')
                       }`} 
                     />
                   </div>

@@ -6,7 +6,7 @@ import রেওয়াজ from "../assets/images/রেওয়াজ.jpg";
 import govindtaranivas from "../assets/images/Govind tara nivas.jpg";
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FolderX } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface Project {
@@ -84,13 +84,14 @@ const ProjectsSection: React.FC = () => {
     { label: 'All Projects', value: 'all' },
     { label: 'Commercial', value: 'commercial' },
     { label: 'Residential', value: 'residential' },
-    /*{ label: 'Urban', value: 'urban' },*/
+    { label: 'Urban', value: 'urban' },
     { label: 'Institutional', value: 'institutional' }
   ];
   
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
+  const activeFilterLabel = (filters.find(f => f.value === activeFilter)?.label) || '';
   
   return (
     <section className="py-20 bg-white dark:bg-slate-800 overflow-hidden">
@@ -126,47 +127,73 @@ const ProjectsSection: React.FC = () => {
           ))}
         </div>
         
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full"
-            >
-              <Link to={`/projects/${project.slug}`} className="group block">
-                <div className="relative overflow-hidden rounded-lg">
-                  <div className="w-full h-64 overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <div className="p-6">
-                      <span className="text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
-                      <h3 className="text-xl font-semibold text-white mt-1">{project.title}</h3>
-                      <div className="text-slate-300 text-sm mt-2">
-                        {project.location} • {project.year}
+        {/* Projects Grid or Empty State */}
+        {filteredProjects.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="w-full"
+              >
+                <Link to={`/projects/${project.slug}`} className="group block">
+                  <div className="relative overflow-hidden rounded-lg">
+                    <div className="w-full h-64 overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                      <div className="p-6">
+                        <span className="text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
+                        <h3 className="text-xl font-semibold text-white mt-1">{project.title}</h3>
+                        <div className="text-slate-300 text-sm mt-2">
+                          {project.location} • {project.year}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="mt-4 px-2">
-                  <span className="text-amber-600 dark:text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
-                  <h3 className="text-xl font-semibold text-slate-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">{project.title}</h3>
-                  <div className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                    {project.location} • {project.year}
+                  <div className="mt-4 px-2">
+                    <span className="text-amber-600 dark:text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
+                    <h3 className="text-xl font-semibold text-slate-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">{project.title}</h3>
+                    <div className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                      {project.location} • {project.year}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-col items-center justify-center text-center bg-slate-50 dark:bg-slate-700/40 border border-dashed border-slate-200 dark:border-slate-600 rounded-2xl p-10 md:p-14"
+          >
+            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-500/20 mb-4">
+              <FolderX className="text-amber-600 dark:text-amber-400" size={28} />
+            </div>
+            <h3 className="text-xl md:text-2xl font-semibold text-slate-800 dark:text-white">No projects in {activeFilterLabel}</h3>
+            <p className="mt-2 max-w-xl text-slate-600 dark:text-slate-300">
+              We don’t have any projects under this category yet. Please check back soon or explore other categories.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <button
+                onClick={() => setActiveFilter('all')}
+                className="px-4 py-2 rounded-full bg-amber-500 text-white hover:bg-amber-600 transition-colors"
+              >
+                Browse all projects
+              </button>
+            </div>
+          </motion.div>
+        )}
         
         {/* View All Button */}
         <div className="text-center mt-12">
