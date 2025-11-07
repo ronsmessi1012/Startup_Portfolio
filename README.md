@@ -38,6 +38,18 @@ Startup_Portfolio/
 
 ## 🚀 Getting Started
 
+### Prerequisites
+
+- Node.js 20.19.x (LTS) or 22.12.x+
+- npm 10+
+
+If you use nvm, this repository includes an `.nvmrc` file. You can switch automatically:
+
+```bash
+nvm install
+nvm use
+```
+
 ### 1. Clone the repository
 
 ```bash
@@ -55,6 +67,12 @@ Start development server
 npm run dev
 ```
 
+If you see an error about unsupported Node.js version (e.g., Node 21.x), switch Node using nvm as above, then reinstall deps:
+
+```bash
+npm ci # or: npm install
+```
+
 ### 2. 🧠 AI Chatbot Integration
 
 This project includes a chatbot using the Gemini API (or OpenAI-compatible). The backend is powered by FastAPI, and the chatbot supports:
@@ -62,3 +80,4 @@ This project includes a chatbot using the Gemini API (or OpenAI-compatible). The
 Dynamic suggested questions
 
 Answering predefined FAQs
+# Portfolio_demo

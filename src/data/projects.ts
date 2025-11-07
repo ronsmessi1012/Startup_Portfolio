@@ -118,7 +118,7 @@ export const projects: Project[] = [
   "id": 5,
   "title": "Sourajit Plaza",
   "slug": "Sourajit Plaza",
-  "category": "cesidential",
+  "category": "residential",
   "location": "Kolkata, India",
   "year": 2025,
   "client": "Sourajit Real Estate",

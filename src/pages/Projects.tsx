@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom';
 import { projects } from '../data/projects';
 import CTASection from '../components/CTASection';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, FolderX } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const { projectId } = useParams();
@@ -28,6 +28,7 @@ const Projects: React.FC = () => {
   const filteredProjects = activeFilter === 'all'
     ? projects
     : projects.filter(project => project.category === activeFilter);
+  const activeFilterLabel = (['all','All Projects'].includes(activeFilter) ? 'All Projects' : (['Commercial','Residential','Urban','Institutional'].includes(activeFilter) ? activeFilter : (activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1))));
 
   if (projectId && !selectedProject) {
     return (
@@ -214,45 +215,77 @@ const Projects: React.FC = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Link to={`/projects/${project.slug}`} className="group block">
-                  <div className="relative overflow-hidden rounded-lg">
-                    <div className="aspect-w-4 aspect-h-3">
-                      <img 
-                        src={project.mainImage} 
-                        alt={project.title} 
-                        className="object-cover w-full h-64 transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                      <div className="p-6">
-                        <span className="text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
-                        <h3 className="text-xl font-semibold text-white mt-1">{project.title}</h3>
-                        <div className="text-slate-300 text-sm mt-2">
-                          {project.location} • {project.year}
+          {filteredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Link to={`/projects/${project.slug}`} className="group block">
+                    <div className="relative overflow-hidden rounded-lg">
+                      <div className="aspect-w-4 aspect-h-3">
+                        <img 
+                          src={project.mainImage} 
+                          alt={project.title} 
+                          className="object-cover w-full h-64 transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div className="p-6">
+                          <span className="text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
+                          <h3 className="text-xl font-semibold text-white mt-1">{project.title}</h3>
+                          <div className="text-slate-300 text-sm mt-2">
+                            {project.location} • {project.year}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="mt-4">
-                    <span className="text-amber-600 dark:text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
-                    <h3 className="text-xl font-semibold text-slate-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">{project.title}</h3>
-                    <div className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                      {project.location} • {project.year}
+                    <div className="mt-4">
+                      <span className="text-amber-600 dark:text-amber-400 text-sm uppercase tracking-wider">{project.category}</span>
+                      <h3 className="text-xl font-semibold text-slate-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">{project.title}</h3>
+                      <div className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                        {project.location} • {project.year}
+                      </div>
                     </div>
-                  </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col items-center justify-center text-center bg-slate-50 dark:bg-slate-700/40 border border-dashed border-slate-200 dark:border-slate-600 rounded-2xl p-10 md:p-14"
+            >
+              <div className="flex items-center justify-center w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-500/20 mb-4">
+                <FolderX className="text-amber-600 dark:text-amber-400" size={28} />
+              </div>
+              <h3 className="text-xl md:text-2xl font-semibold text-slate-800 dark:text-white">No projects in {activeFilterLabel}</h3>
+              <p className="mt-2 max-w-xl text-slate-600 dark:text-slate-300">
+                We don’t have any projects under this category yet. Please check back soon or explore other categories.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <button
+                  onClick={() => setActiveFilter('all')}
+                  className="px-4 py-2 rounded-full bg-amber-500 text-white hover:bg-amber-600 transition-colors"
+                >
+                  Browse all projects
+                </button>
+                <Link
+                  to="/contact"
+                  className="px-4 py-2 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
+                >
+                  Contact us
                 </Link>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
